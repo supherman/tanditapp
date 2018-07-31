@@ -1,0 +1,121 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: $main-font;
+    color: $greyish-brown;
+    background-color: $pale-grey;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: $font-size-title;
+}
+
+h2 {
+    font-size: $font-size-subtitle;
+}
+
+h3 {
+    font-size: $font-size-subtitle-h3;
+}
+
+h4 {
+    font-size: $font-size-subtitle-h4;
+}
+
+p { 
+    font-size: $font-size-regular; 
+    font-weight: $light-weight;
+}
+
+label {
+    font-size: $font-size-regular; 
+    font-weight: $light-weight;
+}
+
+a {
+    font-weight: $light-weight;
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+input, textarea {
+    font-family: $main-font;
+    color: $greyish-brown;
+    padding: 5px 15px;
+    border-radius: $small-border-radius;
+    border: .5px solid  $warm-grey;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    &:focus {
+        outline: none;
+        border:1px solid $greeny-blue;
+        box-shadow: 0 0 5px $greeny-blue;
+    }
+}
+
+input[type="text"], textarea {
+    font-size: $font-size-regular;
+    margin-bottom: 1em;
+    &::placeholder {
+        color: rgba($warm-grey, .8);
+    }
+}
+
+// Text colors
+.green-text-color { color: $greeny-blue; }
+.white-text-color { color: $white; }
+
+
+// Backgrounds
+.white-bg { background-color: $white; }
+.dark-bg { background-color: $greyish-brown; }
+.gradient-bg {
+    background-image: $gradient;
+    &.inverted {
+        background-image: $gradient-inverted;
+    }
+}
+
+// Paddings
+.small-padding { padding: 1em; }
+
+// Margins
+.small-margin { margin: 1em; }
+.small-margin-top { margin-top: 1em; }
+.small-margin-right { margin-right: 1em; }
+.small-margin-bottom { margin-bottom: 1em; }
+
+// Alignments 
+.margin-auto { margin: auto; }
+.text-center { text-align: center; }
+
+// Borders 
+.small-border-radius {
+    border-radius: $small-border-radius;
+}
+
+.flex {
+    display: flex;
+}
+
+// Justify Contents
+.justify-between { justify-content: space-between; }
+
+// Align Items
+.align-items-center { align-items: center; }
