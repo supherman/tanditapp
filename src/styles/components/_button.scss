@@ -1,0 +1,27 @@
+.button {
+    font-family: $main-font;
+    border: none;
+    border-radius: $small-border-radius;
+    padding: 10px 15px;
+    outline: none;
+    font-size: $font-size-regular;
+    &:hover {
+        cursor: pointer;
+    }
+    &.primary {
+        background-color: $greeny-blue;
+        color: $white;
+        &:hover {
+            background-color: rgba($greeny-blue, .9);
+        }
+    }
+    &.secondary {
+        background-color: transparent;
+        color: $white;
+        border: 2px solid $white;
+        &.green {
+            border-color: $greeny-blue;
+            color: $greeny-blue;
+        }
+    }
+}
