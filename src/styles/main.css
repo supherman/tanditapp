@@ -57,10 +57,10 @@ input, textarea {
     border: 1px solid #55bca4;
     box-shadow: 0 0 5px #55bca4; }
 
-input[type="text"], textarea {
+input[type="text"], input[type="password"], textarea {
   font-size: 1em;
   margin-bottom: 1em; }
-  input[type="text"]::placeholder, textarea::placeholder {
+  input[type="text"]::placeholder, input[type="password"]::placeholder, textarea::placeholder {
     color: rgba(151, 151, 151, 0.8); }
 
 .green-text-color {
@@ -112,6 +112,10 @@ input[type="text"], textarea {
 
 .align-items-center {
   align-items: center; }
+
+.hero {
+  padding: 1em;
+  background: linear-gradient(317deg, #55bca4, #270f71); }
 
 .container {
   width: 100%;

@@ -69,7 +69,7 @@ input, textarea {
     }
 }
 
-input[type="text"], textarea {
+input[type="text"], input[type="password"], textarea {
     font-size: $font-size-regular;
     margin-bottom: 1em;
     &::placeholder {
@@ -93,7 +93,7 @@ input[type="text"], textarea {
 }
 
 // Paddings
-.small-padding { padding: 1em; }
+.small-padding { padding: $small-padding; }
 
 // Margins
 .small-margin { margin: 1em; }
