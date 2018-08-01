@@ -1,0 +1,23 @@
+{
+  "extends": "react-app",
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": ["error", {
+      "singleQuote": true,
+      "trailingComma": "all"
+    }],
+    "radix": 0,
+    "no-unused-vars": ["error", {
+      "args": "after-used"
+    }],
+    "no-console": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": ["warn", {
+      "aspects": ["invalidHref"]
+    }]
+  }
+}
