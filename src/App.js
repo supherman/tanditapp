@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
 import './styles/main.css';
 
 // Pages
@@ -13,7 +14,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="/style_guide" component={StyleGuide} />
+          <PrivateRoute exact path="/style_guide" component={StyleGuide} />
           <Route exact path="/sign_in" component={SignIn} />
           <Route component={StyleGuide} />
         </Switch>
