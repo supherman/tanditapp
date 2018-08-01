@@ -1,0 +1,22 @@
+image: registry.gitlab.com/sergio.montoya.c/tanditapp
+
+stages:
+  - lint
+  - test
+
+
+cache:
+  paths:
+    - node_modules
+
+lint:
+  stage: lint
+  script:
+    - yarn
+    - yarn lint
+
+test:
+  stage: test
+  script:
+    - yarn
+    - yarn test
