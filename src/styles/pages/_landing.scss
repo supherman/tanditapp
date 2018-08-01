@@ -1,4 +1,136 @@
 .hero {
-    padding: $small-padding;
-    background: $gradient;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &:before {
+        content: '';
+        width: 100%;
+        height: 150%;
+        background: $gradient;
+        top: -50%;
+        left: 0;
+        position: absolute;
+        z-index: 0;
+        transform: skewY(-3deg);
+    }
+    * {
+        z-index: 1;
+        position: relative;
+    }
 }
+
+.plans {
+    position: relative;
+    z-index: 1;
+}
+
+.how-it-works {
+    position: relative;
+    padding: $small-padding;
+    z-index: 0;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    margin-top: -3em;
+    &:before {
+        content: '';
+        width: 100%;
+        height: 130%;
+        background: $gradient-inverted;
+        opacity: .9;
+        top: -20%;
+        left: 0;
+        position: absolute;
+        z-index: 0;
+        transform: skewY(-3deg);
+    }
+    * {
+        z-index: 1;
+        position: relative;
+    }
+}
+
+.how-secure {
+    position: relative;
+    z-index: 2;
+    &:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: $pale-grey;
+        top:-5%;
+        left: 0;
+        position: absolute;
+        z-index: 0;
+        transform: skewY(3deg);
+    }
+    &:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: $pale-grey;
+        bottom: -10%;
+        right: 0;
+        position: absolute;
+        z-index: 0;
+        transform: skewY(3deg);
+    }
+    * {
+        z-index: 1;
+        position: relative;
+    }
+    .image-container {
+        min-width: 125px;
+        max-width: 125px;
+        padding: $small-padding;
+    }
+}
+
+.ready-contact {
+    position: relative;
+    background: $gradient;
+    z-index: 0;
+    padding-top: 5em;
+    .panel {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 769px) {
+    .plans {
+        flex-direction: column;
+    }
+    .how-it-works {
+        .how-item {
+            flex-direction: column;
+            text-align: center;
+            img {
+                order: 1;
+                margin: 0;
+                margin-bottom: 2em;
+            }
+            .description {
+                order: 2;
+            }
+        }
+    }
+    .how-secure {
+        .secure-item {
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            .image-container {
+                min-width: auto;
+                max-width: 100%;
+            }
+            img {
+                height: 125px;
+                min-width: 125px;
+                max-width: 125px;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+ }

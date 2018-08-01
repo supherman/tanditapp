@@ -35,13 +35,13 @@ h4 {
     font-size: $font-size-subtitle-h4;
 }
 
-p { 
-    font-size: $font-size-regular; 
+p {
+    font-size: $font-size-regular;
     font-weight: $light-weight;
 }
 
 label {
-    font-size: $font-size-regular; 
+    font-size: $font-size-regular;
     font-weight: $light-weight;
 }
 
@@ -95,23 +95,35 @@ input[type="text"], input[type="password"], textarea {
 // Paddings
 .small-padding { padding: $small-padding; }
 
+.big-padding-bottom { padding: 3em; }
+
 // Margins
 .small-margin { margin: 1em; }
 .small-margin-top { margin-top: 1em; }
 .small-margin-right { margin-right: 1em; }
 .small-margin-bottom { margin-bottom: 1em; }
+.small-margin-left { margin-left: 1em; }
 
-// Alignments 
+.medium-margin-bottom { margin-bottom: 2em; }
+.medium-margin-top { margin-top: 2em; }
+
+.big-margin-bottom { margin-bottom: 3em; }
+.big-margin-top { margin-top: 3em; }
+
+// Alignments
 .margin-auto { margin: auto; }
 .text-center { text-align: center; }
 
-// Borders 
+// Borders
 .small-border-radius {
     border-radius: $small-border-radius;
 }
 
 .flex {
     display: flex;
+}
+.flex-1 {
+    flex: 1;
 }
 
 // Justify Contents
