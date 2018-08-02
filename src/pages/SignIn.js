@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import FakeAuth from '../components/FakeAuth';
+import UserAuth from '../components/UserAuth';
 
 class SignIn extends React.Component {
   state = {
@@ -11,13 +11,9 @@ class SignIn extends React.Component {
   };
 
   login = () => {
-    FakeAuth.authenticate(this.state.email, this.state.password)
-      .then(() => {
-        this.setState({ redirectToReferrer: true });
-      })
-      .catch(() => {
-        this.setState({ invalidCredentials: true });
-      });
+    UserAuth.authenticate(this.state.email, this.state.password)
+      .then(() => { this.setState({ redirectToReferrer: true }); })
+      .catch(error => { console.log(error); this.setState({ invalidCredentials: true }); });
   };
 
   handleChange = event => {
