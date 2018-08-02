@@ -28,3 +28,11 @@
         }
     }
 }
+
+
+@media (max-width: 769px) {
+    .button {
+        width: 100%;
+        margin-bottom: $small-margin;
+    }
+}

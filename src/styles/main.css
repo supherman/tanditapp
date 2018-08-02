@@ -10,6 +10,9 @@ html, body {
   flex-direction: column;
   display: flex; }
 
+#root {
+  height: 100%; }
+
 * {
   box-sizing: border-box; }
 
@@ -38,10 +41,14 @@ label {
   font-weight: 300; }
 
 a {
-  font-weight: 300; }
+  font-weight: 300;
+  text-decoration: none; }
   a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     cursor: pointer; }
+  a:visited {
+    text-decoration: none;
+    color: inherit; }
 
 input, textarea {
   font-family: "Poppins", sans-serif;
@@ -136,11 +143,12 @@ input[type="text"], input[type="password"], textarea {
 
 .hero {
   position: relative;
-  min-height: 400px;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
-  align-items: center; }
-  .hero:before {
+  align-items: center;
+  perspective: 1px; }
+  .hero:after {
     content: '';
     width: 100%;
     height: 150%;
@@ -148,10 +156,24 @@ input[type="text"], input[type="password"], textarea {
     top: -50%;
     left: 0;
     position: absolute;
+    z-index: 2;
+    transform: skewY(-3deg);
+    opacity: .7; }
+  .hero:before {
+    content: '';
+    width: 100%;
+    height: 150%;
+    background: url(../assets/images/finance.jpg);
+    background-size: cover;
+    background-position: center top;
+    top: -50%;
+    left: 0;
+    position: absolute;
     z-index: 0;
-    transform: skewY(-3deg); }
+    transform: skewY(-3deg);
+    filter: grayscale(100%); }
   .hero * {
-    z-index: 1;
+    z-index: 3;
     position: relative; }
 
 .plans {
@@ -162,9 +184,8 @@ input[type="text"], input[type="password"], textarea {
   position: relative;
   padding: 1em;
   z-index: 0;
-  padding-top: 5em;
-  padding-bottom: 5em;
-  margin-top: -3em; }
+  padding-bottom: 10em;
+  margin-top: 3em; }
   .how-it-works:before {
     content: '';
     width: 100%;
@@ -182,7 +203,9 @@ input[type="text"], input[type="password"], textarea {
 
 .how-secure {
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+  top: -5em;
+  padding-top: 5em; }
   .how-secure:before {
     content: '';
     width: 100%;
@@ -190,16 +213,6 @@ input[type="text"], input[type="password"], textarea {
     background: #f2f6f9;
     top: -5%;
     left: 0;
-    position: absolute;
-    z-index: 0;
-    transform: skewY(3deg); }
-  .how-secure:after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background: #f2f6f9;
-    bottom: -10%;
-    right: 0;
     position: absolute;
     z-index: 0;
     transform: skewY(3deg); }
@@ -213,13 +226,40 @@ input[type="text"], input[type="password"], textarea {
 
 .ready-contact {
   position: relative;
-  background: linear-gradient(317deg, #55bca4, #270f71);
-  z-index: 0;
-  padding-top: 5em; }
+  padding-top: 10em;
+  background: url(../assets/images/join.jpg);
+  background-size: cover; }
   .ready-contact .panel {
     max-width: 400px; }
+  .ready-contact:before {
+    backdrop-filter: grayscale(100%);
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: linear-gradient(317deg, #55bca4, #270f71);
+    opacity: .9;
+    z-index: 1;
+    background-position: center; }
+  .ready-contact:after {
+    content: '';
+    width: 100%;
+    height: 20%;
+    background: #f2f6f9;
+    top: -10%;
+    right: 0;
+    position: absolute;
+    z-index: 2;
+    transform: skewY(3deg); }
+  .ready-contact * {
+    z-index: 1;
+    position: relative; }
 
 @media (max-width: 769px) {
+  .hero:before {
+    background-position: calc(35%) calc(100%  + 150px); }
   .plans {
     flex-direction: column; }
   .how-it-works .how-item {
@@ -245,11 +285,16 @@ input[type="text"], input[type="password"], textarea {
       margin: 0;
       padding: 0; } }
 
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+  .layout .content {
+    flex: 3; }
+
 .container {
   width: 100%;
-  max-width: 960px; }
-  .container.big {
-    max-width: 1220px; }
+  max-width: 1120px; }
 
 .button {
   font-family: "Poppins", sans-serif;
@@ -276,6 +321,15 @@ input[type="text"], input[type="password"], textarea {
       border-color: #55bca4;
       color: #55bca4; }
 
+@media (max-width: 769px) {
+  .button {
+    width: 100%;
+    margin-bottom: 1em; } }
+
 .panel {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
   border-radius: 6px; }
+
+.navbar {
+  display: flex;
+  width: 100%; }

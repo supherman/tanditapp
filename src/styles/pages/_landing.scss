@@ -1,10 +1,11 @@
 .hero {
     position: relative;
-    min-height: 400px;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    &:before {
+    perspective: 1px;
+    &:after {
         content: '';
         width: 100%;
         height: 150%;
@@ -12,11 +13,26 @@
         top: -50%;
         left: 0;
         position: absolute;
+        z-index: 2;
+        transform: skewY(-3deg);
+        opacity: .7;
+    }
+    &:before {
+        content: '';
+        width: 100%;
+        height: 150%;
+        background: url(../assets/images/finance.jpg);
+        background-size: cover;
+        background-position: center top;
+        top: -50%;
+        left: 0;
+        position: absolute;
         z-index: 0;
         transform: skewY(-3deg);
+        filter: grayscale(100%);
     }
     * {
-        z-index: 1;
+        z-index: 3;
         position: relative;
     }
 }
@@ -30,9 +46,8 @@
     position: relative;
     padding: $small-padding;
     z-index: 0;
-    padding-top: 5em;
-    padding-bottom: 5em;
-    margin-top: -3em;
+    padding-bottom:10em;
+    margin-top: 3em;
     &:before {
         content: '';
         width: 100%;
@@ -54,6 +69,8 @@
 .how-secure {
     position: relative;
     z-index: 2;
+    top: -5em;
+    padding-top: 5em;
     &:before {
         content: '';
         width: 100%;
@@ -64,18 +81,7 @@
         position: absolute;
         z-index: 0;
         transform: skewY(3deg);
-    }
-    &:after {
-        content: '';
-        width: 100%;
-        height: 100%;
-        background: $pale-grey;
-        bottom: -10%;
-        right: 0;
-        position: absolute;
-        z-index: 0;
-        transform: skewY(3deg);
-    }
+    }    
     * {
         z-index: 1;
         position: relative;
@@ -88,16 +94,50 @@
 }
 
 .ready-contact {
-    position: relative;
-    background: $gradient;
-    z-index: 0;
-    padding-top: 5em;
+    position: relative;    
+    padding-top: 10em;
+    background: url(../assets/images/join.jpg);
+    background-size: cover;
     .panel {
         max-width: 400px;
+    }
+    &:before {
+        backdrop-filter: grayscale(100%);
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: $gradient;
+        opacity: .9;
+        z-index: 1;
+        background-position: center;
+    }
+    &:after {
+        content: '';
+        width: 100%;
+        height: 20%;
+        background: $pale-grey;
+        top: -10%;
+        right: 0;
+        position: absolute;
+        z-index: 2;
+        transform: skewY(3deg);
+    }
+    * {
+        z-index: 1;
+        position: relative;
     }
 }
 
 @media (max-width: 769px) {
+    .hero {
+        &:before {
+            background-position: calc(35%) calc(100%  + 150px);
+        }
+    }
+    
     .plans {
         flex-direction: column;
     }

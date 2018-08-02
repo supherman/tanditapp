@@ -1,15 +1,18 @@
 import React from 'react';
-import tanditaSearch from '../assets/images/tandita-search.svg';
-import tanditaGroup from '../assets/images/tandita-group.svg';
-import tanditaCalendar from '../assets/images/tandita-calendar.svg';
-import tanditaStars from '../assets/images/tandita-stars.svg';
-import secureShield from '../assets/images/secure-shield.svg';
-import securePeople from '../assets/images/secure-people.svg';
+import tanditaSearch from '../../assets/images/tandita-search.svg';
+import tanditaGroup from '../../assets/images/tandita-group.svg';
+import tanditaCalendar from '../../assets/images/tandita-calendar.svg';
+import tanditaStars from '../../assets/images/tandita-stars.svg';
+import secureShield from '../../assets/images/secure-shield.svg';
+import securePeople from '../../assets/images/secure-people.svg';
+
+import Navbar from '../../components/Navbar';
 
 const Landing = () => {
     return (
         <div>
             <div className="hero big-margin-bottom">
+                <Navbar isTransparent />
                 <div className="margin-auto container text-center small-padding">
                     <h1 className="white-text-color">La clásica Tandita</h1>
                     <h2 className="white-text-color small-margin-bottom">con un toque de tecnología</h2>
@@ -110,7 +113,7 @@ const Landing = () => {
             </div>
             <div className="how-secure small-padding">
                 <div className="container margin-auto">
-                    <h2 className="text-center small-margin-top small-margin-bottom">¿Qué tan seguro es TANDITAPP?</h2>
+                    <h2 className="text-center big-margin-top">¿Qué tan seguro es TANDITAPP?</h2>
                     <div className="big-margin-bottom flex secure-item">
                         <div className="image-container text-center">
                             <img src={secureShield} />
