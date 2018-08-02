@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import FakeAuth from '../components/FakeAuth';
+import { withAuthenticator } from 'aws-amplify-react';
+import UserAuth from '../components/UserAuth';
 
 class StyleGuide extends React.Component {
   state = {
@@ -8,13 +9,9 @@ class StyleGuide extends React.Component {
   };
 
   logout = () => {
-    FakeAuth.logout()
-      .then(() => {
-        this.setState({ loggedOut: true });
-      })
-      .catch(() => {
-        this.setState({ loggedOut: false });
-      });
+    UserAuth.logout()
+      .then(() => { this.setState({ loggedOut: true }); })
+      .catch(() => { this.setState({ loggedOut: false }); });
   };
 
   render() {
