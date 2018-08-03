@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import UserAuth from '../components/UserAuth';
 
-class SignIn extends React.Component {
+class SignIn extends Component {
   state = {
     redirectToReferrer: false,
     invalidCredentials: false,
@@ -10,7 +10,8 @@ class SignIn extends React.Component {
     password: '',
   };
 
-  login = () => {
+  login = event => {
+    event.preventDefault();
     UserAuth.authenticate(this.state.email, this.state.password)
       .then(() => {
         this.setState({ redirectToReferrer: true });
@@ -22,7 +23,7 @@ class SignIn extends React.Component {
 
   handleChange = event => {
     this.setState({
-      [event.target.id]: event.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -30,8 +31,7 @@ class SignIn extends React.Component {
     const { from } = this.props.location.state || {
       from: { pathname: '/style_guide' },
     };
-    const { redirectToReferrer } = this.state;
-    const showMessage = this.state.invalidCredentials ? 'block' : 'none';
+    const { redirectToReferrer, invalidCredentials } = this.state;
 
     if (redirectToReferrer) {
       return <Redirect to={from} />;
@@ -39,26 +39,29 @@ class SignIn extends React.Component {
 
     return (
       <div className="container margin-auto">
-        <div className="panel small-padding white-bg small-margin-top">
+        <form
+          className="panel small-padding white-bg small-margin-top"
+          onSubmit={this.login}
+        >
           <label>Email:</label>
           <input
-            id="email"
+            name="email"
             value={this.state.email}
             onChange={this.handleChange}
             type="text"
           />
           <label>Password:</label>
           <input
-            id="password"
+            name="password"
             value={this.state.password}
             onChange={this.handleChange}
             type="password"
           />
-          <p style={{ display: showMessage }}>Invalid Credentials</p>
-          <button onClick={this.login} className="button primary">
+          {invalidCredentials && <p>Invalid Credentials</p>}
+          <button className="button primary" type="submit">
             Iniciar Sesión
           </button>
-        </div>
+        </form>
       </div>
     );
   }
