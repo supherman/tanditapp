@@ -7,7 +7,7 @@ const UserAuth = {
         .then(() => {
           resolve(true);
         })
-        .catch(err => {
+        .catch(() => {
           reject(false);
         });
     });
@@ -15,11 +15,9 @@ const UserAuth = {
 
   logout() {
     return new Promise(resolve => {
-      Auth.signOut()
-        .then(data => {
-          resolve('signout');
-        })
-        .catch(err => console.log(err));
+      Auth.signOut().then(() => {
+        resolve('signout');
+      });
     });
   },
 

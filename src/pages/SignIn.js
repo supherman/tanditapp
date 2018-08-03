@@ -15,7 +15,7 @@ class SignIn extends React.Component {
       .then(() => {
         this.setState({ redirectToReferrer: true });
       })
-      .catch(error => {
+      .catch(() => {
         this.setState({ invalidCredentials: true });
       });
   };
