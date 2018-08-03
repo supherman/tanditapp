@@ -1,10 +1,14 @@
 .hero {
     position: relative;
-    min-height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
     perspective: 1px;
+    margin-bottom: 150px;
+    min-height: 450px;
+    .container {
+        justify-content: space-between;
+    }
     &:after {
         content: '';
         width: 100%;
@@ -133,9 +137,14 @@
 
 @media (max-width: 769px) {
     .hero {
+        text-align: center;
         &:before {
             background-position: calc(35%) calc(100%  + 150px);
         }
+        .container {
+            flex-direction: column;
+        }
+    
     }
     
     .plans {

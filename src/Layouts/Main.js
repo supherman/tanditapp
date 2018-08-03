@@ -1,12 +1,12 @@
-import React, { Fragment} from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const Main = ({children}) => {
+const Main = ({children, isLoggedIn = false}) => {
     return(
         <div className="layout">
-            <Navbar />
-            <div className="content small-padding">
+            <Navbar isLoggedIn={isLoggedIn} />
+            <div className="content">
                 {children}
             </div>
             <Footer />

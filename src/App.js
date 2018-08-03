@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
 import './styles/main.css';
 
 // Pages
 import Landing from './pages/Landing';
-import SignIn from './pages/SignIn';
 import StyleGuide from './pages/StyleGuide';
 
 class App extends Component {
@@ -13,9 +13,8 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="/style_guide" component={StyleGuide} />
-          <Route exact path="/sign_in" component={SignIn} />
-          <Route component={StyleGuide} />
+          <PrivateRoute exact path="/style_guide" component={StyleGuide} />
+          <Route component={Landing} />
         </Switch>
       </Router>
     );

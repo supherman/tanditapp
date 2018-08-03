@@ -1,0 +1,12 @@
+.sign-in {
+    max-width: 400px;
+    margin-bottom: -200px;
+}
+
+@media (max-width: 769px) {
+    .sign-in {
+        max-width: 100%;
+        text-align: center;
+        margin-top: 3em;
+    }
+}
