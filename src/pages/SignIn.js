@@ -56,7 +56,7 @@ class SignIn extends React.Component {
             type="password"
           />
           <p style={{ display: showMessage }}>Invalid Credentials</p>
-          <button onClick={this.login} className="button primary" type="submit">
+          <button className="button primary" type="submit">
             Iniciar Sesión
           </button>
         </form>
