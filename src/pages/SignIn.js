@@ -12,8 +12,12 @@ class SignIn extends React.Component {
 
   login = () => {
     UserAuth.authenticate(this.state.email, this.state.password)
-      .then(() => { this.setState({ redirectToReferrer: true }); })
-      .catch(error => { console.log(error); this.setState({ invalidCredentials: true }); });
+      .then(() => {
+        this.setState({ redirectToReferrer: true });
+      })
+      .catch(error => {
+        this.setState({ invalidCredentials: true });
+      });
   };
 
   handleChange = event => {
@@ -23,7 +27,9 @@ class SignIn extends React.Component {
   };
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    const { from } = this.props.location.state || {
+      from: { pathname: '/style_guide' },
+    };
     const { redirectToReferrer } = this.state;
     const showMessage = this.state.invalidCredentials ? 'block' : 'none';
 

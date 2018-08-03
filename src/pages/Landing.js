@@ -86,7 +86,11 @@ const Landing = () => {
         </h2>
         <div className="container margin-auto white-text-color">
           <div className="flex medium-margin-bottom how-item">
-            <img src={tanditaSearch} className="small-margin-right" />
+            <img
+              src={tanditaSearch}
+              className="small-margin-right"
+              alt="lupa"
+            />
             <div className="description">
               <h3>Busca una Tandita</h3>
               <p>
@@ -107,10 +111,18 @@ const Landing = () => {
                 interes más bajas.
               </p>
             </div>
-            <img src={tanditaGroup} className="small-margin-left" />
+            <img
+              src={tanditaGroup}
+              className="small-margin-left"
+              alt="grupo de personas"
+            />
           </div>
           <div className="flex medium-margin-bottom how-item">
-            <img src={tanditaCalendar} className="small-margin-right" />
+            <img
+              src={tanditaCalendar}
+              className="small-margin-right"
+              alt="calendario"
+            />
             <div className="description">
               <h3>Realiza y recibe tus pagos</h3>
               <p>
@@ -128,7 +140,11 @@ const Landing = () => {
                 cumplidores!
               </p>
             </div>
-            <img src={tanditaStars} className="small-margin-left" />
+            <img
+              src={tanditaStars}
+              className="small-margin-left"
+              alt="recompoensas"
+            />
           </div>
         </div>
       </div>
@@ -139,7 +155,7 @@ const Landing = () => {
           </h2>
           <div className="big-margin-bottom flex secure-item">
             <div className="image-container text-center">
-              <img src={secureShield} />
+              <img src={secureShield} alt="seguridad" />
             </div>
             <p>
               TANDITAPP no almancena niguna información confidencial, todos los
@@ -149,7 +165,7 @@ const Landing = () => {
           </div>
           <div className="flex secure-item">
             <div className="image-container text-center">
-              <img src={securePeople} />
+              <img src={securePeople} alt="personas" />
             </div>
             <p>
               TANDITAPP no almancena niguna información confidencial, todos los
@@ -182,9 +198,9 @@ const Landing = () => {
             <label>Nombre:</label>
             <input type="text" />
             <label>Email:</label>
-            <input type="text" />
+            <input type="text" onChange={() => {}} />
             <label>Pregunta:</label>
-            <textarea />
+            <textarea onChange={() => {}} />
             <div className="text-center">
               <button className="button primary">Enviar</button>
             </div>
