@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import UserAuth from '../components/UserAuth';
 
-class SignIn extends React.Component {
+class SignIn extends Component {
   state = {
     redirectToReferrer: false,
     invalidCredentials: false,
@@ -31,8 +31,7 @@ class SignIn extends React.Component {
     const { from } = this.props.location.state || {
       from: { pathname: '/style_guide' },
     };
-    const { redirectToReferrer } = this.state;
-    const showMessage = this.state.invalidCredentials ? 'block' : 'none';
+    const { redirectToReferrer, invalidCredentials } = this.state;
 
     if (redirectToReferrer) {
       return <Redirect to={from} />;
@@ -40,7 +39,10 @@ class SignIn extends React.Component {
 
     return (
       <div className="container margin-auto">
-        <form className="panel small-padding white-bg small-margin-top" onSubmit={this.login}>
+        <form
+          className="panel small-padding white-bg small-margin-top"
+          onSubmit={this.login}
+        >
           <label>Email:</label>
           <input
             name="email"
@@ -55,7 +57,7 @@ class SignIn extends React.Component {
             onChange={this.handleChange}
             type="password"
           />
-          <p style={{ display: showMessage }}>Invalid Credentials</p>
+          {invalidCredentials && <p>Invalid Credentials</p>}
           <button className="button primary" type="submit">
             Iniciar Sesión
           </button>
