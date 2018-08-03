@@ -26,7 +26,7 @@ const Landing = () => {
                 Quiero saber más
               </button>
               <button className="button secondary">Planes</button>
-            </div>          
+            </div>
           </div>
           <SignIn />
         </div>

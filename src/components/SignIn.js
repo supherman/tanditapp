@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import UserAuth from './UserAuth';
-import MainLayout from '../Layouts/Main';
 
 class SignIn extends Component {
   state = {
@@ -37,37 +36,37 @@ class SignIn extends Component {
     }
 
     return (
-    <div className="sign-in">
+      <div className="sign-in">
         <div className="container">
-        <form
-            className="panel small-padding white-bg"
-            onSubmit={this.login}
-        >
+          <form className="panel small-padding white-bg" onSubmit={this.login}>
             <h2 className="small-margin-bottom">¿Ya tienes una cuenta?</h2>
             <label>Email:</label>
             <input
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-            type="text"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+              type="text"
             />
             <label>Password:</label>
             <input
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              type="password"
             />
             <div className="text-center">
-                {invalidCredentials && <p>Invalid Credentials</p>}            
-                <button className="button primary" type="submit">
+              {invalidCredentials && <p>Invalid Credentials</p>}
+              <button className="button primary" type="submit">
                 Iniciar Sesión
-                </button>
-                <p className="text-center small-margin-top">¿No tienes cuenta? <a className="green-text-color">Regístrate aquí.</a></p>
+              </button>
+              <p className="text-center small-margin-top">
+                ¿No tienes cuenta?{' '}
+                <a className="green-text-color">Regístrate aquí.</a>
+              </p>
             </div>
-        </form>
+          </form>
         </div>
-    </div>
+      </div>
     );
   }
 }

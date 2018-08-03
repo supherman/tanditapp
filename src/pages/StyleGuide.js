@@ -1,7 +1,7 @@
 import React from 'react';
 import MainLayout from '../Layouts/Main';
 
-class StyleGuide extends React.Component {  
+class StyleGuide extends React.Component {
   render() {
     return (
       <MainLayout isLoggedIn={this.props.isLoggedIn}>
@@ -15,33 +15,35 @@ class StyleGuide extends React.Component {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
               dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id
               fermentum vel, porta et eros. Vestibulum condimentum lectus in
-              convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu et
-              dui feugiat scelerisque eu quis diam. Mauris placerat congue dui sit
-              amet blandit. Phasellus condimentum libero vel velit auctor, sit
-              amet tincidunt velit varius. Mauris lacinia porta faucibus. Fusce eu
-              est ac eros vulputate mollis in ac felis. Aenean commodo scelerisque
-              mi sed imperdiet. Donec at hendrerit nisi, eget vestibulum nisi. Sed
-              sit amet magna luctus, facilisis erat quis, sagittis ligula. Aenean
-              dignissim velit quis leo consequat ultricies. Proin quis pretium
-              justo. Vestibulum at eros nisl. Fusce lobortis erat ante, eu cursus
-              sapien molestie at. Pellentesque placerat ante diam, et euismod
-              lacus dictum vel. Phasellus vitae sollicitudin mi.
+              convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu
+              et dui feugiat scelerisque eu quis diam. Mauris placerat congue
+              dui sit amet blandit. Phasellus condimentum libero vel velit
+              auctor, sit amet tincidunt velit varius. Mauris lacinia porta
+              faucibus. Fusce eu est ac eros vulputate mollis in ac felis.
+              Aenean commodo scelerisque mi sed imperdiet. Donec at hendrerit
+              nisi, eget vestibulum nisi. Sed sit amet magna luctus, facilisis
+              erat quis, sagittis ligula. Aenean dignissim velit quis leo
+              consequat ultricies. Proin quis pretium justo. Vestibulum at eros
+              nisl. Fusce lobortis erat ante, eu cursus sapien molestie at.
+              Pellentesque placerat ante diam, et euismod lacus dictum vel.
+              Phasellus vitae sollicitudin mi.
             </p>
             <p className="green-text-color">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
               dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id
               fermentum vel, porta et eros. Vestibulum condimentum lectus in
-              convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu et
-              dui feugiat scelerisque eu quis diam. Mauris placerat congue dui sit
-              amet blandit. Phasellus condimentum libero vel velit auctor, sit
-              amet tincidunt velit varius. Mauris lacinia porta faucibus. Fusce eu
-              est ac eros vulputate mollis in ac felis. Aenean commodo scelerisque
-              mi sed imperdiet. Donec at hendrerit nisi, eget vestibulum nisi. Sed
-              sit amet magna luctus, facilisis erat quis, sagittis ligula. Aenean
-              dignissim velit quis leo consequat ultricies. Proin quis pretium
-              justo. Vestibulum at eros nisl. Fusce lobortis erat ante, eu cursus
-              sapien molestie at. Pellentesque placerat ante diam, et euismod
-              lacus dictum vel. Phasellus vitae sollicitudin mi.
+              convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu
+              et dui feugiat scelerisque eu quis diam. Mauris placerat congue
+              dui sit amet blandit. Phasellus condimentum libero vel velit
+              auctor, sit amet tincidunt velit varius. Mauris lacinia porta
+              faucibus. Fusce eu est ac eros vulputate mollis in ac felis.
+              Aenean commodo scelerisque mi sed imperdiet. Donec at hendrerit
+              nisi, eget vestibulum nisi. Sed sit amet magna luctus, facilisis
+              erat quis, sagittis ligula. Aenean dignissim velit quis leo
+              consequat ultricies. Proin quis pretium justo. Vestibulum at eros
+              nisl. Fusce lobortis erat ante, eu cursus sapien molestie at.
+              Pellentesque placerat ante diam, et euismod lacus dictum vel.
+              Phasellus vitae sollicitudin mi.
             </p>
             <a>Regular Link</a>
             <div className="dark-bg small-padding small-margin-top small-border-radius">
@@ -50,20 +52,20 @@ class StyleGuide extends React.Component {
               <h4 className="white-text-color">h4 - Subtitle</h4>
               <p className="white-text-color">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id
-                fermentum vel, porta et eros. Vestibulum condimentum lectus in
-                convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu
-                et dui feugiat scelerisque eu quis diam. Mauris placerat congue
-                dui sit amet blandit. Phasellus condimentum libero vel velit
-                auctor, sit amet tincidunt velit varius. Mauris lacinia porta
-                faucibus. Fusce eu est ac eros vulputate mollis in ac felis.
-                Aenean commodo scelerisque mi sed imperdiet. Donec at hendrerit
-                nisi, eget vestibulum nisi. Sed sit amet magna luctus, facilisis
-                erat quis, sagittis ligula. Aenean dignissim velit quis leo
-                consequat ultricies. Proin quis pretium justo. Vestibulum at eros
-                nisl. Fusce lobortis erat ante, eu cursus sapien molestie at.
-                Pellentesque placerat ante diam, et euismod lacus dictum vel.
-                Phasellus vitae sollicitudin mi.
+                dapibus vulputate diam eu pretium. Mauris elit orci, ultricies
+                id fermentum vel, porta et eros. Vestibulum condimentum lectus
+                in convallis feugiat. Sed vulputate fringilla felis. Aliquam ut
+                arcu et dui feugiat scelerisque eu quis diam. Mauris placerat
+                congue dui sit amet blandit. Phasellus condimentum libero vel
+                velit auctor, sit amet tincidunt velit varius. Mauris lacinia
+                porta faucibus. Fusce eu est ac eros vulputate mollis in ac
+                felis. Aenean commodo scelerisque mi sed imperdiet. Donec at
+                hendrerit nisi, eget vestibulum nisi. Sed sit amet magna luctus,
+                facilisis erat quis, sagittis ligula. Aenean dignissim velit
+                quis leo consequat ultricies. Proin quis pretium justo.
+                Vestibulum at eros nisl. Fusce lobortis erat ante, eu cursus
+                sapien molestie at. Pellentesque placerat ante diam, et euismod
+                lacus dictum vel. Phasellus vitae sollicitudin mi.
               </p>
               <button className="button primary small-margin-right">
                 Primary Button
@@ -78,7 +80,8 @@ class StyleGuide extends React.Component {
               <a className="green-text-color small-margin">Regular Link</a>
               <div className="panel small-padding white-bg small-margin-top">
                 This is a regular panel. Panels have a small shadow and no
-                paddings, so you need to add the class to add the desired padding.
+                paddings, so you need to add the class to add the desired
+                padding.
               </div>
             </div>
             <div className="panel small-padding white-bg small-margin-top">
@@ -93,7 +96,9 @@ class StyleGuide extends React.Component {
               />
               <label>Comments:</label>
               <textarea />
-              <button className="button primary small-margin-right">Send</button>
+              <button className="button primary small-margin-right">
+                Send
+              </button>
               <button className="button secondary green">Cancel</button>
             </div>
             <div className="gradient-bg small-padding small-margin-top small-border-radius">
