@@ -11,7 +11,6 @@ class SignIn extends React.Component {
   };
 
   login = event => {
-    console.log("login")
     event.preventDefault();
     UserAuth.authenticate(this.state.email, this.state.password)
       .then(() => {
