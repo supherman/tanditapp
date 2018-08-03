@@ -7,6 +7,7 @@ import secureShield from '../../assets/images/secure-shield.svg';
 import securePeople from '../../assets/images/secure-people.svg';
 
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import SignIn from '../../components/SignIn';
 
 const Landing = () => {
@@ -214,6 +215,7 @@ const Landing = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
