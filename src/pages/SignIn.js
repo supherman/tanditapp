@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import FakeAuth from '../components/FakeAuth';
+import UserAuth from '../components/UserAuth';
 
 class SignIn extends React.Component {
   state = {
@@ -11,7 +11,7 @@ class SignIn extends React.Component {
   };
 
   login = () => {
-    FakeAuth.authenticate(this.state.email, this.state.password)
+    UserAuth.authenticate(this.state.email, this.state.password)
       .then(() => {
         this.setState({ redirectToReferrer: true });
       })
@@ -27,7 +27,9 @@ class SignIn extends React.Component {
   };
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    const { from } = this.props.location.state || {
+      from: { pathname: '/style_guide' },
+    };
     const { redirectToReferrer } = this.state;
     const showMessage = this.state.invalidCredentials ? 'block' : 'none';
 

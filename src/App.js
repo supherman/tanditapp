@@ -15,6 +15,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Landing} />
           <PrivateRoute exact path="/style_guide" component={StyleGuide} />
+          <PrivateRoute exact path="/something" component={StyleGuide} />
           <Route exact path="/sign_in" component={SignIn} />
           <Route component={StyleGuide} />
         </Switch>

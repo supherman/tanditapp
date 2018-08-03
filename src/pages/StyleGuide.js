@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import FakeAuth from '../components/FakeAuth';
+import UserAuth from '../components/UserAuth';
 
 class StyleGuide extends React.Component {
   state = {
@@ -8,7 +8,7 @@ class StyleGuide extends React.Component {
   };
 
   logout = () => {
-    FakeAuth.logout()
+    UserAuth.logout()
       .then(() => {
         this.setState({ loggedOut: true });
       })
@@ -109,9 +109,13 @@ class StyleGuide extends React.Component {
           <div className="panel small-padding white-bg small-margin-top">
             <h3>Form Title</h3>
             <label>Name:</label>
-            <input type="text" value="John Doe" />
+            <input type="text" value="John Doe" onChange={() => {}} />
             <label>Email:</label>
-            <input type="text" placeholder="sergio@michelada.io" />
+            <input
+              type="text"
+              placeholder="sergio@michelada.io"
+              onChange={() => {}}
+            />
             <label>Comments:</label>
             <textarea />
             <button className="button primary small-margin-right">Send</button>
