@@ -6,6 +6,7 @@ import './styles/main.css';
 // Pages
 import Landing from './pages/Landing';
 import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 import StyleGuide from './pages/StyleGuide';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
           <PrivateRoute exact path="/style_guide" component={StyleGuide} />
           <PrivateRoute exact path="/something" component={StyleGuide} />
           <Route exact path="/sign_in" component={SignIn} />
+          <Route exact path="/sign_up" component={SignUp} />
           <Route component={StyleGuide} />
         </Switch>
       </Router>

@@ -27,6 +27,10 @@ class SignIn extends Component {
     });
   };
 
+  validateForm = () => {
+    return this.state.email.length > 0 && this.state.password.length > 0;
+  };
+
   render() {
     const { from } = this.props.location.state || {
       from: { pathname: '/style_guide' },
@@ -58,7 +62,11 @@ class SignIn extends Component {
             type="password"
           />
           {invalidCredentials && <p>Invalid Credentials</p>}
-          <button className="button primary" type="submit">
+          <button
+            disabled={!this.validateForm()}
+            className="button primary"
+            type="submit"
+          >
             Iniciar Sesión
           </button>
         </form>
