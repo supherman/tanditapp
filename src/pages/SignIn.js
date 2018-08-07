@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import UserAuth from '../components/UserAuth';
+import UserAuth from '../services/UserAuth';
 
 class SignIn extends Component {
   state = {
