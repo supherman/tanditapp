@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import UserAuth from '../components/UserAuth';
+import UserAuth from '../services/UserAuth';
 
 class SignIn extends Component {
   state = {
@@ -25,6 +25,10 @@ class SignIn extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
+  };
+
+  validateForm = () => {
+    return this.state.email.length > 0 && this.state.password.length > 0;
   };
 
   render() {
@@ -58,7 +62,11 @@ class SignIn extends Component {
             type="password"
           />
           {invalidCredentials && <p>Invalid Credentials</p>}
-          <button className="button primary" type="submit">
+          <button
+            disabled={!this.validateForm()}
+            className="button primary"
+            type="submit"
+          >
             Iniciar Sesión
           </button>
         </form>

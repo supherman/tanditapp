@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import UserAuth from '../components/UserAuth';
+import UserAuth from '../services/UserAuth';
 
 class StyleGuide extends React.Component {
   state = {
