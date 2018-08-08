@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 import Amplify from 'aws-amplify';
+import AWSAppSyncClient from 'aws-appsync';
+import { Rehydrated } from 'aws-appsync-react';
+import { ApolloProvider } from 'react-apollo';
+
+import appSyncConfig from './appSyncConfig';
+import App from './App';
 import config from './config';
+import UserAuth from './services/UserAuth';
+import registerServiceWorker from './registerServiceWorker';
 
 Amplify.configure({
   Auth: {
@@ -15,5 +21,22 @@ Amplify.configure({
   },
 });
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const client = new AWSAppSyncClient({
+  url: appSyncConfig.graphqlEndpoint,
+  region: appSyncConfig.region,
+  auth: {
+    type: appSyncConfig.authenticationType,
+    apiKey: appSyncConfig.apiKey,
+    jwtToken: UserAuth.getToken(),
+  },
+});
+
+const app = (
+  <ApolloProvider client={client}>
+    <Rehydrated>
+      <App />
+    </Rehydrated>
+  </ApolloProvider>
+);
+ReactDOM.render(app, document.getElementById('root'));
 registerServiceWorker();

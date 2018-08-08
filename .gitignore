@@ -31,3 +31,5 @@ awsmobilejs/.awsmobile/backend-build
 awsmobilejs/\#current-backend-info
 ~awsmobilejs-*/
 .env
+
+src/AppSyncConfig.js
