@@ -22,13 +22,13 @@ class SignUp extends Component {
     this.setState({
       userCreated: !this.state.userCreated,
     });
-  }
+  };
 
   handleShowConfirmation = () => {
     this.setState({
       userCreated: true,
     });
-  }
+  };
 
   render() {
     const newUserProps = {
@@ -38,14 +38,14 @@ class SignUp extends Component {
     return (
       <Fragment>
         {this.state.userCreated ? (
-          <ConfirmationCodeForm 
-            {...newUserProps} 
+          <ConfirmationCodeForm
+            {...newUserProps}
             handleShowHideConfirmation={this.handleShowHideConfirmation}
           />
         ) : (
-          <SignUpForm 
-            onUserCreated={this.handleUserCreated} 
-            handleChangePanel={this.props.handleChangePanel} 
+          <SignUpForm
+            onUserCreated={this.handleUserCreated}
+            handleChangePanel={this.props.handleChangePanel}
             handleShowHideConfirmation={this.handleShowHideConfirmation}
           />
         )}

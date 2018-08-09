@@ -6,7 +6,7 @@ const Main = ({ children, isLoggedIn = false }) => {
   return (
     <div className="layout">
       <Navbar isLoggedIn={isLoggedIn} />
-        <div className="content">{children}</div>
+      <div className="content">{children}</div>
       <Footer />
     </div>
   );

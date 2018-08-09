@@ -61,7 +61,13 @@ class SignIn extends Component {
               </button>
               <p className="text-center small-margin-top">
                 ¿No tienes cuenta?{' '}
-                <a className="green-text-color" onClick={this.props.handleChangePanel} name="signup">Regístrate aquí.</a>
+                <a
+                  className="green-text-color"
+                  onClick={this.props.handleChangePanel}
+                  name="signup"
+                >
+                  Regístrate aquí.
+                </a>
               </p>
             </div>
           </form>

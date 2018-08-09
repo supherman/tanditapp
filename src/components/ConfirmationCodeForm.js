@@ -26,9 +26,14 @@ class ConfirmationCodeForm extends Component {
 
   handleConfirmationSubmit = event => {
     event.preventDefault();
-    UserAuth.confirmationSignUp(this.props.email || this.state.email, this.state.confirmationCode)
+    UserAuth.confirmationSignUp(
+      this.props.email || this.state.email,
+      this.state.confirmationCode,
+    )
       .then(() => {
-        this.props.password ? this.loginNewUser() : this.props.handleShowHideConfirmation;
+        this.props.password
+          ? this.loginNewUser()
+          : this.props.handleShowHideConfirmation;
       })
       .catch(err => {
         this.setState({
@@ -68,18 +73,18 @@ class ConfirmationCodeForm extends Component {
         onSubmit={this.handleConfirmationSubmit}
       >
         <h2 className="small-margin-bottom">Confirma tu código</h2>
-        { !email &&
-            <Fragment>
-              <label>Correo a confirmar:</label>
-              <input
-                name="email"
-                type="text"
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-              <label>Código de confirmación:</label>
-            </Fragment>
-          }
+        {!email && (
+          <Fragment>
+            <label>Correo a confirmar:</label>
+            <input
+              name="email"
+              type="text"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+            <label>Código de confirmación:</label>
+          </Fragment>
+        )}
         <input
           name="confirmationCode"
           type="text"
@@ -95,12 +100,19 @@ class ConfirmationCodeForm extends Component {
             type="submit"
           >
             Verificar código
-          </button>          
+          </button>
         </div>
         <p className="text-center small-margin-top">
-            ¿No tienes una cuenta?
-            <a className="green-text-color" onClick={this.props.handleShowHideConfirmation} name="signin"> Crea una cuenta aquí.</a>
-          </p>
+          ¿No tienes una cuenta?
+          <a
+            className="green-text-color"
+            onClick={this.props.handleShowHideConfirmation}
+            name="signin"
+          >
+            {' '}
+            Crea una cuenta aquí.
+          </a>
+        </p>
       </form>
     );
   }

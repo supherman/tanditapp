@@ -96,11 +96,25 @@ class RenderSignUpForm extends Component {
           </button>
           <p className="text-center small-margin-top">
             ¿Ya tienes una cuenta?
-            <a className="green-text-color" onClick={this.props.handleChangePanel} name="signin"> Inicia sesión aquí.</a>
+            <a
+              className="green-text-color"
+              onClick={this.props.handleChangePanel}
+              name="signin"
+            >
+              {' '}
+              Inicia sesión aquí.
+            </a>
           </p>
           <p className="text-center small-margin-top">
             ¿Tienes un código de confirmación?
-            <a className="green-text-color" onClick={this.props.handleShowHideConfirmation} name="signin"> Confirma aquí.</a>
+            <a
+              className="green-text-color"
+              onClick={this.props.handleShowHideConfirmation}
+              name="signin"
+            >
+              {' '}
+              Confirma aquí.
+            </a>
           </p>
         </div>
       </form>
