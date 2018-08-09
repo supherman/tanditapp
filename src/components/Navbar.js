@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import UserAuth from '../components/UserAuth';
+import UserAuth from '../services/UserAuth';
 
 export default class Navbar extends PureComponent {
   state = {

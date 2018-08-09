@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import UserAuth from './UserAuth';
+import UserAuth from '../services/UserAuth';
 
 export default class PrivateRoute extends Component {
   state = {

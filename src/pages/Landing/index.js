@@ -8,14 +8,14 @@ import securePeople from '../../assets/images/secure-people.svg';
 
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import SignIn from '../../components/SignIn';
+import AuthPanels from '../../components/AuthPanels';
 
 const Landing = () => {
   return (
     <div>
       <div className="hero big-margin-bottom">
         <Navbar isTransparent />
-        <div className="margin-auto container small-padding flex">
+        <div className="margin-auto container small-padding flex align-items-start">
           <div>
             <h1 className="white-text-color">La clásica Tandita</h1>
             <h2 className="white-text-color small-margin-bottom">
@@ -28,7 +28,7 @@ const Landing = () => {
               <button className="button secondary">Planes</button>
             </div>
           </div>
-          <SignIn />
+          <AuthPanels />
         </div>
       </div>
       <div className="container text-center margin-auto small-padding">

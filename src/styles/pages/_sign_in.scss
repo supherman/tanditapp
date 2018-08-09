@@ -1,6 +1,8 @@
-.sign-in {
+.sign-in, .sign-up, .code-confirm {
     max-width: 400px;
     margin-bottom: -200px;
+    position: relative;
+    animation: .5s panel-enter forwards;
 }
 
 @media (max-width: 769px) {
@@ -9,5 +11,16 @@
         max-width: 100%;
         text-align: center;
         margin-top: 3em;
+    }
+}
+
+@keyframes panel-enter {
+    0% {
+        left:-50px;
+        opacity: 0;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
     }
 }

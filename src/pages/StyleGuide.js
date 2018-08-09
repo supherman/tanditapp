@@ -1,6 +1,5 @@
 import React from 'react';
 import MainLayout from '../Layouts/Main';
-
 class StyleGuide extends React.Component {
   render() {
     return (

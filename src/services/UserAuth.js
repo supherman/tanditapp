@@ -2,23 +2,19 @@ import { Auth } from 'aws-amplify';
 
 const UserAuth = {
   authenticate(email, password) {
-    return new Promise((resolve, reject) => {
-      Auth.signIn(email, password)
-        .then(() => {
-          resolve(true);
-        })
-        .catch(() => {
-          reject(false);
-        });
-    });
+    return Auth.signIn(email, password);
+  },
+
+  signUp(email, password) {
+    return Auth.signUp(email, password);
   },
 
   logout() {
-    return new Promise(resolve => {
-      Auth.signOut().then(() => {
-        resolve('signout');
-      });
-    });
+    return Auth.signOut();
+  },
+
+  confirmationSignUp(email, confirmationCode) {
+    return Auth.confirmSignUp(email, confirmationCode);
   },
 
   isAuthenticated: () => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import UserAuth from './UserAuth';
+import UserAuth from '../services/UserAuth';
 
 class SignIn extends Component {
   state = {
@@ -39,7 +39,7 @@ class SignIn extends Component {
       <div className="sign-in">
         <div className="container">
           <form className="panel small-padding white-bg" onSubmit={this.login}>
-            <h2 className="small-margin-bottom">¿Ya tienes una cuenta?</h2>
+            <h2 className="small-margin-bottom">Iniciar sesión en TANDITAPP</h2>
             <label>Email:</label>
             <input
               name="email"
@@ -61,7 +61,7 @@ class SignIn extends Component {
               </button>
               <p className="text-center small-margin-top">
                 ¿No tienes cuenta?{' '}
-                <a className="green-text-color">Regístrate aquí.</a>
+                <a className="green-text-color" onClick={this.props.handleChangePanel} name="signup">Regístrate aquí.</a>
               </p>
             </div>
           </form>
