@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserAuth from '../services/UserAuth';
+import Flash from '../shared_components/Flash';
 
 class RenderSignUpForm extends Component {
   constructor(props) {
@@ -51,15 +52,17 @@ class RenderSignUpForm extends Component {
 
     this.setState(prevState => ({
       passwordDontMatch: prevState.password !== prevState.confirmPassword,
+      newUserError: false,
     }));
   };
 
   render() {
     return (
       <form
-        className="panel small-padding white-bg small-margin-top"
+        className="panel small-padding white-bg small-margin-top sign-up"
         onSubmit={this.handleSubmit}
       >
+        <h2 className="small-margin-bottom">Crear cuenta en TANDITAPP</h2>
         <label>Email:</label>
         <input
           name="email"
@@ -82,16 +85,42 @@ class RenderSignUpForm extends Component {
           type="password"
         />
         {this.state.passwordDontMatch && (
-          <p>Confirmación de password no concuerda</p>
+          <Flash type="error">Confirmación de password no concuerda</Flash>
         )}
-        {this.state.newUserError && <p>{this.state.newUserErrorMsg}</p>}
-        <button
-          disabled={!this.validateForm()}
-          className="button primary"
-          type="submit"
-        >
-          Crear cuenta
-        </button>
+        {this.state.newUserError && (
+          <Flash type="error">{this.state.newUserErrorMsg}</Flash>
+        )}
+        <div className="text-center">
+          <button
+            disabled={!this.validateForm()}
+            className="button primary"
+            type="submit"
+          >
+            Crear cuenta
+          </button>
+          <p className="text-center small-margin-top">
+            ¿Ya tienes una cuenta?
+            <a
+              className="green-text-color"
+              onClick={this.props.onChangePanel}
+              name="signin"
+            >
+              {' '}
+              Inicia sesión aquí.
+            </a>
+          </p>
+          <p className="text-center small-margin-top">
+            ¿Tienes un código de confirmación?
+            <a
+              className="green-text-color"
+              onClick={this.props.onShowHideConfirmation}
+              name="signin"
+            >
+              {' '}
+              Confirma aquí.
+            </a>
+          </p>
+        </div>
       </form>
     );
   }

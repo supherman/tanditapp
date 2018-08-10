@@ -1,26 +1,34 @@
 import React from 'react';
-import tanditaSearch from '../assets/images/tandita-search.svg';
-import tanditaGroup from '../assets/images/tandita-group.svg';
-import tanditaCalendar from '../assets/images/tandita-calendar.svg';
-import tanditaStars from '../assets/images/tandita-stars.svg';
-import secureShield from '../assets/images/secure-shield.svg';
-import securePeople from '../assets/images/secure-people.svg';
+import tanditaSearch from '../../assets/images/tandita-search.svg';
+import tanditaGroup from '../../assets/images/tandita-group.svg';
+import tanditaCalendar from '../../assets/images/tandita-calendar.svg';
+import tanditaStars from '../../assets/images/tandita-stars.svg';
+import secureShield from '../../assets/images/secure-shield.svg';
+import securePeople from '../../assets/images/secure-people.svg';
+
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import AuthPanels from '../../components/AuthPanels';
 
 const Landing = () => {
   return (
     <div>
       <div className="hero big-margin-bottom">
-        <div className="margin-auto container text-center small-padding">
-          <h1 className="white-text-color">La clásica Tandita</h1>
-          <h2 className="white-text-color small-margin-bottom">
-            con un toque de tecnología
-          </h2>
-          <div className="margin-auto">
-            <button className="button primary small-margin-right">
-              Quiero saber más
-            </button>
-            <button className="button secondary">Planes</button>
+        <Navbar isTransparent />
+        <div className="margin-auto container small-padding flex align-items-start">
+          <div>
+            <h1 className="white-text-color">La clásica Tandita</h1>
+            <h2 className="white-text-color small-margin-bottom">
+              con un toque de tecnología
+            </h2>
+            <div className="margin-auto">
+              <button className="button primary small-margin-right">
+                Quiero saber más
+              </button>
+              <button className="button secondary">Planes</button>
+            </div>
           </div>
+          <AuthPanels />
         </div>
       </div>
       <div className="container text-center margin-auto small-padding">
@@ -207,6 +215,7 @@ const Landing = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

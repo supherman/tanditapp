@@ -17,6 +17,10 @@ const UserAuth = {
     return Auth.confirmSignUp(email, confirmationCode);
   },
 
+  resendConfirm(email) {
+    return Auth.resendSignUp(email);
+  },
+
   isAuthenticated: () => {
     const response = Auth.currentSession()
       .then(() => {

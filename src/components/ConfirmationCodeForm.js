@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
 import UserAuth from '../services/UserAuth';
+import Flash from '../shared_components/Flash';
 
 class ConfirmationCodeForm extends Component {
   constructor(props) {
@@ -26,9 +27,14 @@ class ConfirmationCodeForm extends Component {
 
   handleConfirmationSubmit = event => {
     event.preventDefault();
-    UserAuth.confirmationSignUp(this.props.email, this.state.confirmationCode)
+    UserAuth.confirmationSignUp(
+      this.props.email || this.state.email,
+      this.state.confirmationCode,
+    )
       .then(() => {
-        this.loginNewUser();
+        this.props.password !== ''
+          ? this.loginNewUser()
+          : this.props.onShowHideConfirmation();
       })
       .catch(err => {
         this.setState({
@@ -56,6 +62,7 @@ class ConfirmationCodeForm extends Component {
 
   render() {
     const { userLogged } = this.state;
+    const { email } = this.props;
 
     if (userLogged) {
       return <Redirect to="/style_guide" />;
@@ -63,24 +70,52 @@ class ConfirmationCodeForm extends Component {
 
     return (
       <form
-        className="panel small-padding white-bg small-margin-top"
+        className="panel small-padding white-bg small-margin-top code-confirm"
         onSubmit={this.handleConfirmationSubmit}
       >
+        <h2 className="small-margin-bottom">Confirma tu código</h2>
+        {!email && (
+          <Fragment>
+            <label>Correo a confirmar:</label>
+            <input
+              name="email"
+              type="text"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+            <label>Código de confirmación:</label>
+          </Fragment>
+        )}
         <input
           name="confirmationCode"
           type="text"
           value={this.state.confirmationCode}
           onChange={this.handleChange}
         />
-        <p>Revisa tu correo para obtener tu código de confirmación</p>
-        {this.state.newUserError && <p>{this.state.newUserErrorMsg}</p>}
-        <button
-          disabled={!this.validateConfirmationCode()}
-          className="button primary"
-          type="submit"
-        >
-          Verificar código
-        </button>
+        {this.state.newUserError && (
+          <Flash type="error">{this.state.newUserErrorMsg}</Flash>
+        )}
+        <div className="text-center">
+          <p>Revisa tu correo para obtener tu código de confirmación</p>
+          <button
+            disabled={!this.validateConfirmationCode()}
+            className="button primary"
+            type="submit"
+          >
+            Verificar código
+          </button>
+        </div>
+        <p className="text-center small-margin-top">
+          ¿No tienes una cuenta?
+          <a
+            className="green-text-color"
+            onClick={this.props.onShowHideConfirmation}
+            name="signin"
+          >
+            {' '}
+            Crea una cuenta aquí.
+          </a>
+        </p>
       </form>
     );
   }

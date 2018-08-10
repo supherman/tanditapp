@@ -24,7 +24,7 @@ export default class PrivateRoute extends Component {
         {...rest}
         render={props =>
           isLoggedIn ? (
-            <Component {...props} />
+            <Component {...props} isLoggedIn={isLoggedIn} />
           ) : (
             <Redirect
               to={{

@@ -1,0 +1,16 @@
+.flash-notice {
+  margin-bottom: $small-margin;
+  border: 1px solid;
+  border-radius: $small-border-radius;
+  padding: .5em;
+  &.success {
+    background: rgba($greeny-blue, 0.6);
+    border-color: $greeny-blue;
+    color: $white;
+  }
+  &.error {
+    background: rgba($red, 0.5);
+    border-color: $red;
+    color: $white;
+  }
+}
