@@ -7,7 +7,7 @@ const PANEL = {
   SIGNIN: 'signin',
   SIGNUP: 'signup',
   RESEND: 'resend',
-}
+};
 
 class AuthPanels extends PureComponent {
   state = {
