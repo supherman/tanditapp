@@ -3,6 +3,12 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import ResendConfirm from './ResendConfirm';
 
+const PANEL = {
+  SIGNIN: 'signin',
+  SIGNUP: 'signup',
+  RESEND: 'resend',
+}
+
 class AuthPanels extends PureComponent {
   state = {
     panelShowing: 'signin',
@@ -10,11 +16,11 @@ class AuthPanels extends PureComponent {
 
   generatePanels = panelShowing => {
     switch (panelShowing) {
-      case 'signin':
+      case PANEL.SIGNIN:
         return <SignIn onChangePanel={this.handleChangePanel} />;
-      case 'signup':
+      case PANEL.SIGNUP:
         return <SignUp onChangePanel={this.handleChangePanel} />;
-      case 'resend':
+      case PANEL.RESEND:
         return <ResendConfirm onChangePanel={this.handleChangePanel} />;
       default:
         break;
