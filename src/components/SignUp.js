@@ -19,7 +19,7 @@ class SignUp extends Component {
   };
 
   handleShowHideConfirmation = () => {
-    this.setState( prevState => ({
+    this.setState(prevState => ({
       userCreated: !prevState.userCreated,
     }));
   };

@@ -92,7 +92,9 @@ class ConfirmationCodeForm extends Component {
           value={this.state.confirmationCode}
           onChange={this.handleChange}
         />
-        {this.state.newUserError && <Flash type="error">{this.state.newUserErrorMsg}</Flash>}
+        {this.state.newUserError && (
+          <Flash type="error">{this.state.newUserErrorMsg}</Flash>
+        )}
         <div className="text-center">
           <p>Revisa tu correo para obtener tu código de confirmación</p>
           <button

@@ -87,7 +87,9 @@ class RenderSignUpForm extends Component {
         {this.state.passwordDontMatch && (
           <Flash type="error">Confirmación de password no concuerda</Flash>
         )}
-        {this.state.newUserError && <Flash type="error">{this.state.newUserErrorMsg}</Flash>}
+        {this.state.newUserError && (
+          <Flash type="error">{this.state.newUserErrorMsg}</Flash>
+        )}
         <div className="text-center">
           <button
             disabled={!this.validateForm()}

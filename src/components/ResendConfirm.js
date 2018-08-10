@@ -6,26 +6,26 @@ export default class ResendConfirm extends PureComponent {
   state = {
     email: '',
     errors: '',
-    success: ''
-  }
+    success: '',
+  };
 
   handleResendConfirm = event => {
     event.preventDefault();
-    const {email} = this.state;
+    const { email } = this.state;
     UserAuth.resendConfirm(email)
-      .then((result) => {
+      .then(() => {
         this.setState({
           success: 'Confirmation code sent, please check your email.',
           errors: '',
-        })
+        });
       })
       .catch(errors => {
         this.setState({
           errors: errors.message || errors,
-          success: ''
-        })
+          success: '',
+        });
       });
-  }
+  };
 
   handleChange = event => {
     this.setState({
@@ -34,9 +34,9 @@ export default class ResendConfirm extends PureComponent {
   };
 
   render() {
-    const {errors, success} = this.state;
-    const {onChangePanel} = this.props;
-    return(
+    const { errors, success } = this.state;
+    const { onChangePanel } = this.props;
+    return (
       <div className="auth-panel">
         <form className="panel small-padding white-bg">
           <h2 className="small-margin-bottom">Solicitar confirmación</h2>
@@ -48,11 +48,15 @@ export default class ResendConfirm extends PureComponent {
             type="text"
           />
           <div className="text-center">
-            { success && <Flash type="success">{success}</Flash> }
-            { errors && <Flash type="error">{errors}</Flash> }
+            {success && <Flash type="success">{success}</Flash>}
+            {errors && <Flash type="error">{errors}</Flash>}
           </div>
           <div className="text-center">
-            <button type="submit" className="button primary" onClick={this.handleResendConfirm}>
+            <button
+              type="submit"
+              className="button primary"
+              onClick={this.handleResendConfirm}
+            >
               Reenviar Código
             </button>
           </div>
@@ -78,6 +82,6 @@ export default class ResendConfirm extends PureComponent {
           </p>
         </form>
       </div>
-    )
+    );
   }
 }

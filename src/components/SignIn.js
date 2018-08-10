@@ -57,7 +57,9 @@ class SignIn extends Component {
               type="password"
             />
             <div className="text-center">
-              {invalidCredentials && <Flash type="error">Invalid Credentials</Flash>}
+              {invalidCredentials && (
+                <Flash type="error">Invalid Credentials</Flash>
+              )}
               <button className="button primary" type="submit">
                 Iniciar Sesión
               </button>

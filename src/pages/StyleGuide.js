@@ -110,7 +110,7 @@ class StyleGuide extends React.Component {
             </div>
             <div className="gradient-bg inverted small-padding small-margin-top small-border-radius">
               <h2 className="white-text-color">h2 - Gradient background</h2>
-            </div>            
+            </div>
           </div>
         </div>
       </MainLayout>

@@ -18,7 +18,7 @@ const UserAuth = {
   },
 
   resendConfirm(email) {
-    return  Auth.resendSignUp(email);
+    return Auth.resendSignUp(email);
   },
 
   isAuthenticated: () => {
