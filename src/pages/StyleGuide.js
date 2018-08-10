@@ -1,11 +1,16 @@
 import React from 'react';
 import MainLayout from '../Layouts/Main';
+
+import Flash from '../shared_components/Flash';
+
 class StyleGuide extends React.Component {
   render() {
     return (
       <MainLayout isLoggedIn={this.props.isLoggedIn}>
         <div>
           <div className="big container margin-auto small-padding">
+            <Flash type="error">ERROR FLASH</Flash>
+            <Flash type="success">SUCCESS FLASH</Flash>
             <h1>H1 - Tanditap Style Guide</h1>
             <h2>h2 - Regular Subtitle</h2>
             <h3>h3 - Subtitle</h3>
@@ -101,11 +106,11 @@ class StyleGuide extends React.Component {
               <button className="button secondary green">Cancel</button>
             </div>
             <div className="gradient-bg small-padding small-margin-top small-border-radius">
-              <h1 className="white-text-color">h1 - Gradient background</h1>
+              <h2 className="white-text-color">h2 - Gradient background</h2>
             </div>
             <div className="gradient-bg inverted small-padding small-margin-top small-border-radius">
-              <h1 className="white-text-color">h1 - Gradient background</h1>
-            </div>
+              <h2 className="white-text-color">h2 - Gradient background</h2>
+            </div>            
           </div>
         </div>
       </MainLayout>

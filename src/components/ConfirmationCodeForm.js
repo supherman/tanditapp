@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
 import UserAuth from '../services/UserAuth';
+import Flash from '../shared_components/Flash';
 
 class ConfirmationCodeForm extends Component {
   constructor(props) {
@@ -31,9 +32,9 @@ class ConfirmationCodeForm extends Component {
       this.state.confirmationCode,
     )
       .then(() => {
-        this.props.password
+        this.props.password !== ''
           ? this.loginNewUser()
-          : this.props.handleShowHideConfirmation;
+          : this.props.onShowHideConfirmation();
       })
       .catch(err => {
         this.setState({
@@ -91,7 +92,7 @@ class ConfirmationCodeForm extends Component {
           value={this.state.confirmationCode}
           onChange={this.handleChange}
         />
-        {this.state.newUserError && <p>{this.state.newUserErrorMsg}</p>}
+        {this.state.newUserError && <Flash type="error">{this.state.newUserErrorMsg}</Flash>}
         <div className="text-center">
           <p>Revisa tu correo para obtener tu código de confirmación</p>
           <button
@@ -106,7 +107,7 @@ class ConfirmationCodeForm extends Component {
           ¿No tienes una cuenta?
           <a
             className="green-text-color"
-            onClick={this.props.handleShowHideConfirmation}
+            onClick={this.props.onShowHideConfirmation}
             name="signin"
           >
             {' '}

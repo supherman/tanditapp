@@ -5,6 +5,10 @@
     padding: 10px 15px;
     outline: none;
     font-size: $font-size-regular;
+    &[disabled] {
+        opacity: 0.6;
+        pointer-events: none;
+    }
     &:hover {
         cursor: pointer;
     }
@@ -27,11 +31,7 @@
             color: $greeny-blue;
         }
     }
-}
-
-
-@media (max-width: 769px) {
-    .button {
+    @media (max-width: 769px) {
         width: 100%;
         margin-bottom: $small-margin;
     }

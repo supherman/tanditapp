@@ -1,5 +1,6 @@
-.sign-in, .sign-up, .code-confirm {
+.auth-panel, .sign-in, .sign-up, .code-confirm {
     max-width: 400px;
+    width: 100%;
     margin-bottom: -200px;
     position: relative;
     animation: .5s panel-enter forwards;

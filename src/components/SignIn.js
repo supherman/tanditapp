@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import UserAuth from '../services/UserAuth';
+import Flash from '../shared_components/Flash';
 
 class SignIn extends Component {
   state = {
@@ -30,6 +31,7 @@ class SignIn extends Component {
   render() {
     const from = { pathname: '/style_guide' };
     const { redirectToReferrer, invalidCredentials } = this.state;
+    const { onChangePanel } = this.props;
 
     if (redirectToReferrer) {
       return <Redirect to={from} />;
@@ -55,7 +57,7 @@ class SignIn extends Component {
               type="password"
             />
             <div className="text-center">
-              {invalidCredentials && <p>Invalid Credentials</p>}
+              {invalidCredentials && <Flash type="error">Invalid Credentials</Flash>}
               <button className="button primary" type="submit">
                 Iniciar Sesión
               </button>
@@ -63,10 +65,20 @@ class SignIn extends Component {
                 ¿No tienes cuenta?{' '}
                 <a
                   className="green-text-color"
-                  onClick={this.props.handleChangePanel}
+                  onClick={onChangePanel}
                   name="signup"
                 >
                   Regístrate aquí.
+                </a>
+              </p>
+              <p className="text-center small-margin-top">
+                ¿Y mi código de confirmación?{' '}
+                <a
+                  className="green-text-color"
+                  onClick={onChangePanel}
+                  name="resend"
+                >
+                  Solicita uno aquí.
                 </a>
               </p>
             </div>

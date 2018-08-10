@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserAuth from '../services/UserAuth';
+import Flash from '../shared_components/Flash';
 
 class RenderSignUpForm extends Component {
   constructor(props) {
@@ -51,6 +52,7 @@ class RenderSignUpForm extends Component {
 
     this.setState(prevState => ({
       passwordDontMatch: prevState.password !== prevState.confirmPassword,
+      newUserError: false,
     }));
   };
 
@@ -83,9 +85,9 @@ class RenderSignUpForm extends Component {
           type="password"
         />
         {this.state.passwordDontMatch && (
-          <p>Confirmación de password no concuerda</p>
+          <Flash type="error">Confirmación de password no concuerda</Flash>
         )}
-        {this.state.newUserError && <p>{this.state.newUserErrorMsg}</p>}
+        {this.state.newUserError && <Flash type="error">{this.state.newUserErrorMsg}</Flash>}
         <div className="text-center">
           <button
             disabled={!this.validateForm()}
@@ -98,7 +100,7 @@ class RenderSignUpForm extends Component {
             ¿Ya tienes una cuenta?
             <a
               className="green-text-color"
-              onClick={this.props.handleChangePanel}
+              onClick={this.props.onChangePanel}
               name="signin"
             >
               {' '}
@@ -109,7 +111,7 @@ class RenderSignUpForm extends Component {
             ¿Tienes un código de confirmación?
             <a
               className="green-text-color"
-              onClick={this.props.handleShowHideConfirmation}
+              onClick={this.props.onShowHideConfirmation}
               name="signin"
             >
               {' '}

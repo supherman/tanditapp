@@ -19,15 +19,9 @@ class SignUp extends Component {
   };
 
   handleShowHideConfirmation = () => {
-    this.setState({
-      userCreated: !this.state.userCreated,
-    });
-  };
-
-  handleShowConfirmation = () => {
-    this.setState({
-      userCreated: true,
-    });
+    this.setState( prevState => ({
+      userCreated: !prevState.userCreated,
+    }));
   };
 
   render() {
@@ -40,13 +34,13 @@ class SignUp extends Component {
         {this.state.userCreated ? (
           <ConfirmationCodeForm
             {...newUserProps}
-            handleShowHideConfirmation={this.handleShowHideConfirmation}
+            onShowHideConfirmation={this.handleShowHideConfirmation}
           />
         ) : (
           <SignUpForm
             onUserCreated={this.handleUserCreated}
-            handleChangePanel={this.props.handleChangePanel}
-            handleShowHideConfirmation={this.handleShowHideConfirmation}
+            onChangePanel={this.props.onChangePanel}
+            onShowHideConfirmation={this.handleShowHideConfirmation}
           />
         )}
       </Fragment>
