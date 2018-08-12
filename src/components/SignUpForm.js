@@ -33,10 +33,12 @@ class RenderSignUpForm extends Component {
     event.preventDefault();
     UserAuth.signUp(this.state.email, this.state.password)
       .then(() => {
+        console.log('?');
         this.setState({ newUserError: false });
         this.props.onUserCreated(this.state.email, this.state.password);
       })
       .catch(err => {
+        console.log(err);
         this.setState({
           newUser: null,
           newUserError: true,

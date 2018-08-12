@@ -6,7 +6,11 @@ const UserAuth = {
   },
 
   signUp(email, password) {
-    return Auth.signUp(email, password);
+    return Auth.signUp({
+      username: email,
+      password,
+      email,
+    });
   },
 
   logout() {
@@ -31,6 +35,9 @@ const UserAuth = {
       });
     return response;
   },
+
+  getToken: async () =>
+    (await Auth.currentSession()).getAccessToken().getJwtToken(),
 };
 
 export default UserAuth;
