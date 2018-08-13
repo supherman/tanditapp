@@ -1,0 +1,57 @@
+.progressbar {
+  border-radius: $small-border-radius;
+  background: rgba($warm-grey, 0.2);
+  height: .5em;
+  width: 100%;
+  margin-top: 1em;
+  display: flex;
+  overflow: hidden;
+  .progress {
+      width: 50%;
+      background: $greeny-blue;
+  }
+}
+
+.progress-radial {
+    position: relative;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+}
+
+.progress {
+    transform: rotate(-90deg);
+    text {
+      font-size: 150%;
+      font-family: $main-font;
+    }
+}
+
+.progress__meter,
+.progress__value {
+    fill: none;
+}
+
+.progress__meter {
+    stroke: $pale-grey;
+}
+
+.progress__value {
+    stroke: $greeny-blue;
+    stroke-linecap: round;
+    animation: 2s dash forwards;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 339;
+  }
+}

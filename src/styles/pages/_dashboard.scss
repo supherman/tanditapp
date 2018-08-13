@@ -1,0 +1,57 @@
+.dashboard-page {
+  margin: auto;
+  padding: $small-padding;  
+  padding-top: calc(#{$menu-height} + 15px);
+} 
+
+.panels-list {
+  display: flex;
+  flex-wrap: wrap;
+  .panel {
+    width: calc((100%  / 3) - (#{$small-margin} * 2));
+    display: inline-block;
+    margin-bottom: $small-margin;
+    overflow: hidden;
+    margin: $small-margin;    
+    .progress-radial {
+      h2 {
+        position: relative;
+        right: -5px;
+      }
+      p {
+        margin: 0;
+      }
+    }
+    h2 {
+      display: flex;
+      align-items: center;
+      svg {
+        width: 35px;
+        height: 35px;;
+        margin-right: $small-margin;
+      }
+    }
+    .panel-buttons {
+      display: flex;
+      padding: $small-padding;
+      margin-top: calc(-#{$small-margin});      
+      button {
+        flex: 1;
+      }
+    }
+    ul {
+      padding: $small-padding;
+      background: $pale-grey;
+      border-radius: $small-border-radius;
+      margin-top: calc(-#{$small-margin});
+    }
+  }
+  @media (max-width: 769px) {
+    .panel {
+      width: 100%;
+      .panel-buttons {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}

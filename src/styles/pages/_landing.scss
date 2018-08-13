@@ -35,7 +35,7 @@
         transform: skewY(-3deg);
         filter: grayscale(100%);
     }
-    * {
+    > * {
         z-index: 3;
         position: relative;
     }
@@ -142,7 +142,7 @@
         &:before {
             background-position: calc(35%) calc(100%  + 150px);
         }
-        .container {
+        > .container {
             flex-direction: column;
         }
     

@@ -2,3 +2,9 @@
     width: 100%;
     max-width: 1120px;
 }
+
+.row {
+    position: relative;
+    margin-left: calc(-#{$small-padding});
+    width: calc(100% + (#{$small-padding} * 2));
+}

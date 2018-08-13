@@ -1,12 +1,14 @@
 import React, { PureComponent, Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import UserAuth from '../services/UserAuth';
+import { SVGMenu } from '../shared_components/svg';
 
 export default class Navbar extends PureComponent {
   state = {
     isLoggedIn: false,
     fetching: true,
     loggedOut: false,
+    menuShowing: false,
   };
 
   componentDidMount = async () => {
@@ -29,38 +31,32 @@ export default class Navbar extends PureComponent {
 
   links = isLoggedIn => [
     {
-      component: (
-        <Link to="/sign_in" className="small-margin-right">
-          Iniciar Sesión
-        </Link>
-      ),
+      component: <Link to="/sign_in">Iniciar Sesión</Link>,
       visible: !isLoggedIn,
     },
     {
-      component: (
-        <a className="small-margin-right" onClick={this.logout}>
-          Cerrar Sesión
-        </a>
-      ),
+      component: <Link to="/sign_up">Registrarse</Link>,
+      visible: !isLoggedIn,
+    },
+    {
+      component: <Link to="/dashboard">Dashboard</Link>,
       visible: isLoggedIn,
     },
     {
-      component: (
-        <Link to="/sign_up" className="small-margin-right">
-          Registrarse
-        </Link>
-      ),
-      visible: !isLoggedIn,
-    },
-    {
-      component: <Link to="/style_guide">Style Guide</Link>,
+      component: <a onClick={this.logout}>Cerrar Sesión</a>,
       visible: isLoggedIn,
     },
   ];
 
+  handleShowMenu = () => {
+    this.setState(prevState => ({
+      menuShowing: !prevState.menuShowing,
+    }));
+  };
+
   render() {
     const { isTransparent } = this.props;
-    const { loggedOut, isLoggedIn, fetching } = this.state;
+    const { loggedOut, isLoggedIn, fetching, menuShowing } = this.state;
     return (
       <div className={`navbar ${!isTransparent ? 'gradient-bg' : ''}`}>
         {loggedOut && <Redirect to="/" />}
@@ -68,16 +64,23 @@ export default class Navbar extends PureComponent {
           <Link to="/">
             <h2 className="white-text-color">TANDITAPP</h2>
           </Link>
-          {!fetching && (
-            <div className="white-text-color">
-              {this.links(isLoggedIn).map(
-                (link, index) =>
-                  link.visible && (
-                    <Fragment key={index}>{link.component}</Fragment>
-                  ),
-              )}
-            </div>
-          )}
+          <div className="links-list">
+            <a onClick={this.handleShowMenu} className="menu-link">
+              <SVGMenu />
+            </a>
+            {!fetching && (
+              <div
+                className={`white-text-color links ${menuShowing && 'visible'}`}
+              >
+                {this.links(isLoggedIn).map(
+                  (link, index) =>
+                    link.visible && (
+                      <Fragment key={index}>{link.component}</Fragment>
+                    ),
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     );

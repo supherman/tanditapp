@@ -39,6 +39,11 @@ h4 {
     font-size: $font-size-subtitle-h4;
 }
 
+ul {
+    margin: 0;
+    list-style: none;
+}
+
 p {
     font-size: $font-size-regular;
     font-weight: $light-weight;
@@ -52,6 +57,7 @@ label {
 a {
     font-weight: $light-weight;
     text-decoration: none;
+    color: $white;
     &:hover {
         text-decoration: none;
         cursor: pointer;
@@ -137,6 +143,7 @@ input[type="text"], input[type="password"], textarea {
 
 // Justify Contents
 .justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
 
 // Align Items
 .align-items-center { align-items: center; }

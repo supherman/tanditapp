@@ -6,6 +6,7 @@ import './styles/main.css';
 // Pages
 import Landing from './pages/Landing';
 import StyleGuide from './pages/StyleGuide';
+import Dashboard from './pages/Dashboard';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Landing} />
           <PrivateRoute exact path="/style_guide" component={StyleGuide} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <Route component={Landing} />
         </Switch>
       </Router>
