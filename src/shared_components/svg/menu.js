@@ -2,13 +2,7 @@ import React from 'react';
 
 const SVGMenu = () => {
   return (
-    <svg
-      x="0px"
-      y="0px"
-      width="124px"
-      height="124px"
-      viewBox="0 0 124 124"
-    >
+    <svg x="0px" y="0px" width="124px" height="124px" viewBox="0 0 124 124">
       <g>
         <path
           className="path-1"
