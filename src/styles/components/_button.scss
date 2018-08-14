@@ -5,12 +5,21 @@
     padding: 10px 15px;
     outline: none;
     font-size: $font-size-regular;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
     &[disabled] {
         opacity: 0.6;
         pointer-events: none;
     }
     &:hover {
         cursor: pointer;
+        transition: .3s;
+    }
+    svg {
+        width: 25px;
+        margin-left: 1em;
+        height: auto;
     }
     &.primary {
         background-color: $greeny-blue;
@@ -21,6 +30,14 @@
             border-color: rgba($greeny-blue, .9);
             background-color: rgba($greeny-blue, .9);
         }
+        svg {
+            fill: $white;
+        }
+    }
+    &.link {
+        background: none;
+        color: $white;  
+        padding: 0;
     }
     &.secondary {
         background-color: transparent;
@@ -29,6 +46,12 @@
         &.green {
             border-color: $greeny-blue;
             color: $greeny-blue;
+            &:hover {
+                background: rgba($greeny-blue, 0.2);
+            }
+            svg {
+                fill: $greeny-blue;
+            }
         }
     }
     @media (max-width: 769px) {

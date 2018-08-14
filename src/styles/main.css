@@ -32,6 +32,10 @@ h3 {
 h4 {
   font-size: 1.15em; }
 
+ul {
+  margin: 0;
+  list-style: none; }
+
 p {
   font-size: 1em;
   font-weight: 300; }
@@ -42,7 +46,8 @@ label {
 
 a {
   font-weight: 300;
-  text-decoration: none; }
+  text-decoration: none;
+  color: #FFF; }
   a:hover {
     text-decoration: none;
     cursor: pointer; }
@@ -93,6 +98,9 @@ input[type="text"], input[type="password"], textarea {
 .big-padding-bottom {
   padding: 3em; }
 
+.no-margin {
+  margin: 0; }
+
 .small-margin {
   margin: 1em; }
 
@@ -138,6 +146,9 @@ input[type="text"], input[type="password"], textarea {
 .justify-between {
   justify-content: space-between; }
 
+.justify-center {
+  justify-content: center; }
+
 .align-items-center {
   align-items: center; }
 
@@ -151,7 +162,8 @@ input[type="text"], input[type="password"], textarea {
   align-items: center;
   perspective: 1px;
   margin-bottom: 150px;
-  min-height: 450px; }
+  min-height: 450px;
+  padding-top: 70px; }
   .hero .container {
     justify-content: space-between; }
   .hero:after {
@@ -178,7 +190,7 @@ input[type="text"], input[type="password"], textarea {
     z-index: 0;
     transform: skewY(-3deg);
     filter: grayscale(100%); }
-  .hero * {
+  .hero > * {
     z-index: 3;
     position: relative; }
 
@@ -266,10 +278,12 @@ input[type="text"], input[type="password"], textarea {
 @media (max-width: 769px) {
   .hero {
     text-align: center;
-    margin-bottom: 200px; }
+    margin-bottom: 200px;
+    align-items: center;
+    display: flex; }
     .hero:before {
       background-position: calc(35%) calc(100%  + 150px); }
-    .hero .container {
+    .hero > .container {
       flex-direction: column; }
   .plans {
     flex-direction: column; }
@@ -318,17 +332,73 @@ input[type="text"], input[type="password"], textarea {
     left: 0;
     opacity: 1; } }
 
+.dashboard-page {
+  margin: auto;
+  padding: 1em; }
+
+.panels-list {
+  display: flex;
+  flex-wrap: wrap; }
+  .panels-list .panel {
+    width: calc((100%  / 3) - (1em * 2));
+    display: inline-block;
+    margin-bottom: 1em;
+    overflow: hidden;
+    margin: 1em; }
+    .panels-list .panel .progress-radial h2 {
+      position: relative;
+      right: -5px;
+      display: flex; }
+    .panels-list .panel .progress-radial p {
+      margin: 0; }
+    .panels-list .panel h2 {
+      align-items: center; }
+      .panels-list .panel h2 svg {
+        width: 35px;
+        height: 35px;
+        margin-right: 1em; }
+    .panels-list .panel .panel-buttons {
+      display: flex;
+      padding: 1em;
+      margin-top: calc(-1em); }
+      .panels-list .panel .panel-buttons button {
+        flex: 1; }
+    .panels-list .panel ul {
+      padding: 1em;
+      background: #f2f6f9;
+      border-radius: 6px;
+      margin-top: calc(-1em);
+      display: flex;
+      flex-wrap: wrap; }
+      .panels-list .panel ul li {
+        margin-bottom: 1em;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        text-align: center; }
+  @media (max-width: 769px) {
+    .panels-list .panel {
+      width: 100%; }
+      .panels-list .panel .panel-buttons {
+        flex-direction: column-reverse; } }
+
 .layout {
   display: flex;
   flex-direction: column;
   height: 100%; }
   .layout .content {
     position: relative;
-    flex: 3; }
+    flex: 3;
+    padding-top: calc(70px + 15px); }
 
 .container {
   width: 100%;
   max-width: 1120px; }
+
+.row {
+  position: relative;
+  margin-left: calc(-1em);
+  width: calc(100% + (1em * 2)); }
 
 .button {
   font-family: "Poppins", sans-serif;
@@ -336,12 +406,20 @@ input[type="text"], input[type="password"], textarea {
   border-radius: 6px;
   padding: 10px 15px;
   outline: none;
-  font-size: 1em; }
+  font-size: 1em;
+  align-items: center;
+  justify-content: center;
+  transition: .2s; }
   .button[disabled] {
     opacity: 0.6;
     pointer-events: none; }
   .button:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    transition: .3s; }
+  .button svg {
+    width: 25px;
+    margin-left: 1em;
+    height: auto; }
   .button.primary {
     background-color: #55bca4;
     color: #FFF;
@@ -350,6 +428,12 @@ input[type="text"], input[type="password"], textarea {
     .button.primary:hover {
       border-color: rgba(85, 188, 164, 0.9);
       background-color: rgba(85, 188, 164, 0.9); }
+    .button.primary svg {
+      fill: #FFF; }
+  .button.link {
+    background: none;
+    color: #FFF;
+    padding: 0; }
   .button.secondary {
     background-color: transparent;
     color: #FFF;
@@ -357,6 +441,10 @@ input[type="text"], input[type="password"], textarea {
     .button.secondary.green {
       border-color: #55bca4;
       color: #55bca4; }
+      .button.secondary.green:hover {
+        background: rgba(85, 188, 164, 0.2); }
+      .button.secondary.green svg {
+        fill: #55bca4; }
   @media (max-width: 769px) {
     .button {
       width: 100%;
@@ -369,7 +457,51 @@ input[type="text"], input[type="password"], textarea {
 .navbar {
   display: flex;
   width: 100%;
-  flex-shrink: 0; }
+  min-height: 70px;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  flex-shrink: 0;
+  z-index: 4; }
+  .navbar .menu-link {
+    display: none; }
+  .navbar .links {
+    position: relative;
+    right: -1em; }
+    .navbar .links a, .navbar .links button {
+      margin: 1em; }
+  @media (max-width: 769px) {
+    .navbar .links-list {
+      display: flex;
+      justify-content: space-between;
+      position: auto; }
+      .navbar .links-list .menu-link {
+        display: block;
+        margin: 0; }
+        .navbar .links-list .menu-link svg {
+          fill: #fff;
+          width: 25px;
+          height: 25px; }
+      .navbar .links-list .links {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 100px;
+        z-index: -1;
+        flex-direction: column;
+        display: flex;
+        align-items: center; }
+        .navbar .links-list .links.visible {
+          position: fixed;
+          top: 70px;
+          z-index: 3; }
+        .navbar .links-list .links a, .navbar .links-list .links .button {
+          margin: 0;
+          background: rgba(74, 74, 74, 0.98);
+          line-height: 4em;
+          width: 100%;
+          text-align: center;
+          border-radius: 0; } }
 
 .flash-notice {
   margin-bottom: 1em;
@@ -384,3 +516,50 @@ input[type="text"], input[type="password"], textarea {
     background: rgba(245, 58, 51, 0.5);
     border-color: #F53A33;
     color: #FFF; }
+
+.progressbar {
+  border-radius: 6px;
+  background: rgba(151, 151, 151, 0.2);
+  height: .5em;
+  width: 100%;
+  margin-top: 1em;
+  display: flex;
+  overflow: hidden; }
+  .progressbar .progress {
+    width: 50%;
+    background: #55bca4; }
+
+.progress-radial {
+  position: relative;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .progress-radial svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0; }
+
+.progress {
+  transform: rotate(-90deg); }
+  .progress text {
+    font-size: 150%;
+    font-family: "Poppins", sans-serif; }
+
+.progress__meter,
+.progress__value {
+  fill: none; }
+
+.progress__meter {
+  stroke: #f2f6f9; }
+
+.progress__value {
+  stroke: #FFF;
+  stroke-linecap: round;
+  animation: 2s dash forwards; }
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 339; } }

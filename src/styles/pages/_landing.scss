@@ -6,6 +6,7 @@
     perspective: 1px;
     margin-bottom: 150px;
     min-height: 450px;
+    padding-top: $menu-height;
     .container {
         justify-content: space-between;
     }
@@ -35,7 +36,7 @@
         transform: skewY(-3deg);
         filter: grayscale(100%);
     }
-    * {
+    > * {
         z-index: 3;
         position: relative;
     }
@@ -139,15 +140,15 @@
     .hero {
         text-align: center;
         margin-bottom: 200px;
+        align-items: center;
+        display: flex;
         &:before {
             background-position: calc(35%) calc(100%  + 150px);
         }
-        .container {
+        > .container {
             flex-direction: column;
         }
-    
     }
-    
     .plans {
         flex-direction: column;
     }

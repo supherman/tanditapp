@@ -28,7 +28,7 @@ export default class PrivateRoute extends Component {
           ) : (
             <Redirect
               to={{
-                pathname: '/sign_in',
+                pathname: '/',
                 state: { from: props.location },
               }}
             />

@@ -39,6 +39,11 @@ h4 {
     font-size: $font-size-subtitle-h4;
 }
 
+ul {
+    margin: 0;
+    list-style: none;
+}
+
 p {
     font-size: $font-size-regular;
     font-weight: $light-weight;
@@ -52,6 +57,7 @@ label {
 a {
     font-weight: $light-weight;
     text-decoration: none;
+    color: $white;
     &:hover {
         text-decoration: none;
         cursor: pointer;
@@ -107,6 +113,7 @@ input[type="text"], input[type="password"], textarea {
 .big-padding-bottom { padding: 3em; }
 
 // Margins
+.no-margin { margin: 0; }
 .small-margin { margin: $small-margin; }
 .small-margin-top { margin-top: $small-margin; }
 .small-margin-right { margin-right: $small-margin; }
@@ -137,6 +144,7 @@ input[type="text"], input[type="password"], textarea {
 
 // Justify Contents
 .justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
 
 // Align Items
 .align-items-center { align-items: center; }
