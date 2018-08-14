@@ -43,7 +43,11 @@ export default class Navbar extends PureComponent {
       visible: isLoggedIn,
     },
     {
-      component: <a onClick={this.logout}>Cerrar Sesión</a>,
+      component: (
+        <button className="button link" onClick={this.logout}>
+          Cerrar Sesión
+        </button>
+      ),
       visible: isLoggedIn,
     },
   ];
@@ -65,9 +69,12 @@ export default class Navbar extends PureComponent {
             <h2 className="white-text-color">TANDITAPP</h2>
           </Link>
           <div className="links-list">
-            <a onClick={this.handleShowMenu} className="menu-link">
+            <button
+              onClick={this.handleShowMenu}
+              className="menu-link button link"
+            >
               <SVGMenu />
-            </a>
+            </button>
             {!fetching && (
               <div
                 className={`white-text-color links ${menuShowing && 'visible'}`}

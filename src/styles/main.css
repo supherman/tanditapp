@@ -98,6 +98,9 @@ input[type="text"], input[type="password"], textarea {
 .big-padding-bottom {
   padding: 3em; }
 
+.no-margin {
+  margin: 0; }
+
 .small-margin {
   margin: 1em; }
 
@@ -159,7 +162,8 @@ input[type="text"], input[type="password"], textarea {
   align-items: center;
   perspective: 1px;
   margin-bottom: 150px;
-  min-height: 450px; }
+  min-height: 450px;
+  padding-top: 70px; }
   .hero .container {
     justify-content: space-between; }
   .hero:after {
@@ -274,7 +278,9 @@ input[type="text"], input[type="password"], textarea {
 @media (max-width: 769px) {
   .hero {
     text-align: center;
-    margin-bottom: 200px; }
+    margin-bottom: 200px;
+    align-items: center;
+    display: flex; }
     .hero:before {
       background-position: calc(35%) calc(100%  + 150px); }
     .hero > .container {
@@ -328,8 +334,7 @@ input[type="text"], input[type="password"], textarea {
 
 .dashboard-page {
   margin: auto;
-  padding: 1em;
-  padding-top: calc(70px + 15px); }
+  padding: 1em; }
 
 .panels-list {
   display: flex;
@@ -342,11 +347,11 @@ input[type="text"], input[type="password"], textarea {
     margin: 1em; }
     .panels-list .panel .progress-radial h2 {
       position: relative;
-      right: -5px; }
+      right: -5px;
+      display: flex; }
     .panels-list .panel .progress-radial p {
       margin: 0; }
     .panels-list .panel h2 {
-      display: flex;
       align-items: center; }
       .panels-list .panel h2 svg {
         width: 35px;
@@ -362,7 +367,15 @@ input[type="text"], input[type="password"], textarea {
       padding: 1em;
       background: #f2f6f9;
       border-radius: 6px;
-      margin-top: calc(-1em); }
+      margin-top: calc(-1em);
+      display: flex;
+      flex-wrap: wrap; }
+      .panels-list .panel ul li {
+        margin-bottom: 1em;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        text-align: center; }
   @media (max-width: 769px) {
     .panels-list .panel {
       width: 100%; }
@@ -375,7 +388,8 @@ input[type="text"], input[type="password"], textarea {
   height: 100%; }
   .layout .content {
     position: relative;
-    flex: 3; }
+    flex: 3;
+    padding-top: calc(70px + 15px); }
 
 .container {
   width: 100%;
@@ -402,6 +416,10 @@ input[type="text"], input[type="password"], textarea {
   .button:hover {
     cursor: pointer;
     transition: .3s; }
+  .button svg {
+    width: 25px;
+    margin-left: 1em;
+    height: auto; }
   .button.primary {
     background-color: #55bca4;
     color: #FFF;
@@ -411,10 +429,11 @@ input[type="text"], input[type="password"], textarea {
       border-color: rgba(85, 188, 164, 0.9);
       background-color: rgba(85, 188, 164, 0.9); }
     .button.primary svg {
-      fill: #FFF;
-      width: 25px;
-      margin-left: 1em;
-      height: auto; }
+      fill: #FFF; }
+  .button.link {
+    background: none;
+    color: #FFF;
+    padding: 0; }
   .button.secondary {
     background-color: transparent;
     color: #FFF;
@@ -424,6 +443,8 @@ input[type="text"], input[type="password"], textarea {
       color: #55bca4; }
       .button.secondary.green:hover {
         background: rgba(85, 188, 164, 0.2); }
+      .button.secondary.green svg {
+        fill: #55bca4; }
   @media (max-width: 769px) {
     .button {
       width: 100%;
@@ -447,7 +468,7 @@ input[type="text"], input[type="password"], textarea {
   .navbar .links {
     position: relative;
     right: -1em; }
-    .navbar .links a {
+    .navbar .links a, .navbar .links button {
       margin: 1em; }
   @media (max-width: 769px) {
     .navbar .links-list {
@@ -455,7 +476,8 @@ input[type="text"], input[type="password"], textarea {
       justify-content: space-between;
       position: auto; }
       .navbar .links-list .menu-link {
-        display: block; }
+        display: block;
+        margin: 0; }
         .navbar .links-list .menu-link svg {
           fill: #fff;
           width: 25px;
@@ -470,14 +492,16 @@ input[type="text"], input[type="password"], textarea {
         display: flex;
         align-items: center; }
         .navbar .links-list .links.visible {
+          position: fixed;
           top: 70px;
           z-index: 3; }
-        .navbar .links-list .links a {
+        .navbar .links-list .links a, .navbar .links-list .links .button {
           margin: 0;
-          background: rgba(74, 74, 74, 0.95);
+          background: rgba(74, 74, 74, 0.98);
           line-height: 4em;
           width: 100%;
-          text-align: center; } }
+          text-align: center;
+          border-radius: 0; } }
 
 .flash-notice {
   margin-bottom: 1em;
@@ -532,7 +556,7 @@ input[type="text"], input[type="password"], textarea {
   stroke: #f2f6f9; }
 
 .progress__value {
-  stroke: #55bca4;
+  stroke: #FFF;
   stroke-linecap: round;
   animation: 2s dash forwards; }
 

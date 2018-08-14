@@ -11,7 +11,7 @@
         display: none;
     }
     .links {
-        a {
+        a, button{
             margin: 1em;
         }
         position: relative;
@@ -24,6 +24,7 @@
             position: auto;
             .menu-link {
                 display: block;
+                margin: 0;
                 svg {
                     fill: #fff;
                     width: 25px;
@@ -40,15 +41,17 @@
                 display: flex;
                 align-items: center;
                 &.visible {
+                    position: fixed;
                     top: 70px;
                     z-index: 3;
                 }
-                a {
+                a, .button {
                     margin: 0;
-                    background: rgba($greyish-brown, 0.95);
+                    background: rgba($greyish-brown, 0.98);
                     line-height: 4em;
                     width: 100%;
                     text-align: center;
+                    border-radius: 0;
                 }
             }
         }

@@ -1,7 +1,6 @@
 .dashboard-page {
   margin: auto;
-  padding: $small-padding;  
-  padding-top: calc(#{$menu-height} + 15px);
+  padding: $small-padding;
 } 
 
 .panels-list {
@@ -17,13 +16,13 @@
       h2 {
         position: relative;
         right: -5px;
+        display: flex;
       }
       p {
         margin: 0;
       }
     }
     h2 {
-      display: flex;
       align-items: center;
       svg {
         width: 35px;
@@ -44,6 +43,15 @@
       background: $pale-grey;
       border-radius: $small-border-radius;
       margin-top: calc(-#{$small-margin});
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        margin-bottom: $small-margin;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
     }
   }
   @media (max-width: 769px) {

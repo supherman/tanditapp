@@ -16,6 +16,11 @@
         cursor: pointer;
         transition: .3s;
     }
+    svg {
+        width: 25px;
+        margin-left: 1em;
+        height: auto;
+    }
     &.primary {
         background-color: $greeny-blue;
         color: $white;
@@ -27,10 +32,12 @@
         }
         svg {
             fill: $white;
-            width: 25px;
-            margin-left: 1em;
-            height: auto;
         }
+    }
+    &.link {
+        background: none;
+        color: $white;  
+        padding: 0;
     }
     &.secondary {
         background-color: transparent;
@@ -41,6 +48,9 @@
             color: $greeny-blue;
             &:hover {
                 background: rgba($greeny-blue, 0.2);
+            }
+            svg {
+                fill: $greeny-blue;
             }
         }
     }

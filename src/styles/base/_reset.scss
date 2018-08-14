@@ -113,6 +113,7 @@ input[type="text"], input[type="password"], textarea {
 .big-padding-bottom { padding: 3em; }
 
 // Margins
+.no-margin { margin: 0; }
 .small-margin { margin: $small-margin; }
 .small-margin-top { margin-top: $small-margin; }
 .small-margin-right { margin-right: $small-margin; }

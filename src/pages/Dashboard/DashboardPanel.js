@@ -1,36 +1,37 @@
 import React from 'react';
 import Panel from '../../components/Panel';
 import ProgressRadial from '../../shared_components/ProgressRadial';
-import { SVGWallet } from '../../shared_components/svg';
+import { SVGWallet, SVGInfo } from '../../shared_components/svg';
 
 const DashboardPanel = ({ progress = 80 }) => {
   return (
     <Panel>
       <div>
-        <div className="small-padding dark-bg inverted white-text-color">
-          <h3>Ahorra $3,000</h3>
-        </div>
-        <div className="small-padding">
+        <div className="gradient-bg inverted small-padding">
           <ProgressRadial progress={progress} height={140}>
-            <div className="green-text-color">
+            <div className="white-text-color">
               <h2 className="justify-center">{progress}%</h2>
               <p>Para empezar</p>
             </div>
           </ProgressRadial>
         </div>
+        <div className="small-padding text-center">
+          <p className="no-margin">Total de la Tandita</p>
+          <h2>$3,000</h2>
+        </div>
         <div className="small-padding">
           <ul>
             <li>
-              <strong>Frecuencia:</strong> 15 Días (Quincenal)
+              <strong>Frecuencia</strong> 15 Días (Quincenal)
             </li>
             <li>
-              <strong>Ahorro:</strong> $433.00
+              <strong>Ahorro</strong> $433.00
             </li>
             <li>
-              <strong>Vence:</strong> 16/Oct/2018
+              <strong>Vence</strong> 16/Oct/2018
             </li>
             <li>
-              <strong>Tasa Interés:</strong> 10%
+              <strong>Interés</strong> 10%
             </li>
           </ul>
         </div>
@@ -39,7 +40,10 @@ const DashboardPanel = ({ progress = 80 }) => {
             Unirme
             <SVGWallet />
           </button>
-          <button className="button secondary green flex">Ver más</button>
+          <button className="button secondary green flex">
+            Ver más
+            <SVGInfo />
+          </button>
         </div>
       </div>
     </Panel>
