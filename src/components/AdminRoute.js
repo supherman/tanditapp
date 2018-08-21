@@ -2,28 +2,30 @@ import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import UserAuth from '../services/UserAuth';
 
-export default class PrivateRoute extends Component {
+export default class AdminRoute extends Component {
   state = {
     fetching: true,
     isLoggedIn: false,
+    isAdmin: false,
   };
 
   componentDidMount = async () => {
     const response = await UserAuth.isAuthenticated();
     this.setState({
       isLoggedIn: response.loggedIn,
+      isAdmin: response.isAdmin,
       fetching: false,
     });
   };
 
   render() {
     const { component: Component, ...rest } = this.props;
-    const { isLoggedIn, fetching } = this.state;
+    const { isLoggedIn, isAdmin, fetching } = this.state;
     return !fetching ? (
       <Route
         {...rest}
         render={props =>
-          isLoggedIn ? (
+          isLoggedIn && isAdmin ? (
             <Component {...props} isLoggedIn={isLoggedIn} />
           ) : (
             <Redirect

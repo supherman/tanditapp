@@ -6,6 +6,7 @@ import { SVGMenu } from '../shared_components/svg';
 export default class Navbar extends PureComponent {
   state = {
     isLoggedIn: false,
+    isAdmin: false,
     fetching: true,
     loggedOut: false,
     menuShowing: false,
@@ -14,7 +15,8 @@ export default class Navbar extends PureComponent {
   componentDidMount = async () => {
     const response = await UserAuth.isAuthenticated();
     this.setState({
-      isLoggedIn: response,
+      isLoggedIn: response.loggedIn,
+      isAdmin: response.isAdmin,
       fetching: false,
     });
   };
@@ -29,7 +31,7 @@ export default class Navbar extends PureComponent {
       });
   };
 
-  links = isLoggedIn => [
+  links = (isLoggedIn, isAdmin) => [
     {
       component: <Link to="/sign_in">Iniciar Sesión</Link>,
       visible: !isLoggedIn,
@@ -41,6 +43,10 @@ export default class Navbar extends PureComponent {
     {
       component: <Link to="/dashboard">Dashboard</Link>,
       visible: isLoggedIn,
+    },
+    {
+      component: <Link to="/admin">Admin</Link>,
+      visible: isLoggedIn && isAdmin,
     },
     {
       component: (
@@ -60,7 +66,13 @@ export default class Navbar extends PureComponent {
 
   render() {
     const { isTransparent } = this.props;
-    const { loggedOut, isLoggedIn, fetching, menuShowing } = this.state;
+    const {
+      loggedOut,
+      isLoggedIn,
+      isAdmin,
+      fetching,
+      menuShowing,
+    } = this.state;
     return (
       <div className={`navbar ${!isTransparent ? 'gradient-bg' : ''}`}>
         {loggedOut && <Redirect to="/" />}
@@ -79,7 +91,7 @@ export default class Navbar extends PureComponent {
               <div
                 className={`white-text-color links ${menuShowing && 'visible'}`}
               >
-                {this.links(isLoggedIn).map(
+                {this.links(isLoggedIn, isAdmin).map(
                   (link, index) =>
                     link.visible && (
                       <Fragment key={index}>{link.component}</Fragment>
