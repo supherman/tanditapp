@@ -21,24 +21,24 @@ export default class AdminRoute extends Component {
   render() {
     const { component: Component, ...rest } = this.props;
     const { isLoggedIn, isAdmin, fetching } = this.state;
-    return !fetching ? (
-      <Route
-        {...rest}
-        render={props =>
-          isLoggedIn && isAdmin ? (
-            <Component {...props} isLoggedIn={isLoggedIn} />
-          ) : (
-            <Redirect
-              to={{
-                pathname: '/',
-                state: { from: props.location },
-              }}
-            />
-          )
-        }
-      />
-    ) : (
-      <div />
+    return (
+      !fetching && (
+        <Route
+          {...rest}
+          render={props =>
+            isLoggedIn && isAdmin ? (
+              <Component {...props} isLoggedIn={isLoggedIn} />
+            ) : (
+              <Redirect
+                to={{
+                  pathname: '/',
+                  state: { from: props.location },
+                }}
+              />
+            )
+          }
+        />
+      )
     );
   }
 }
