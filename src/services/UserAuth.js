@@ -23,11 +23,13 @@ const UserAuth = {
 
   isAuthenticated: () => {
     const response = Auth.currentSession()
-      .then(() => {
-        return true;
+      .then(response => {
+        const cognitoGroups = response.accessToken.payload['cognito:groups'];
+        const isAdmin = cognitoGroups && cognitoGroups.includes('Admin');
+        return { loggedIn: true, isAdmin: isAdmin };
       })
       .catch(() => {
-        return false;
+        return { loggedIn: false, isAdmin: false };
       });
     return response;
   },

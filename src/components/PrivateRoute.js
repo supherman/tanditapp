@@ -11,7 +11,7 @@ export default class PrivateRoute extends Component {
   componentDidMount = async () => {
     const response = await UserAuth.isAuthenticated();
     this.setState({
-      isLoggedIn: response,
+      isLoggedIn: response.loggedIn,
       fetching: false,
     });
   };
