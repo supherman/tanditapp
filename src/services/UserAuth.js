@@ -33,6 +33,9 @@ const UserAuth = {
       });
     return response;
   },
+
+  getToken: async () =>
+    (await Auth.currentSession()).getAccessToken().getJwtToken(),
 };
 
 export default UserAuth;

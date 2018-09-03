@@ -40,7 +40,7 @@ class RenderSignUpForm extends Component {
         this.setState({
           newUser: null,
           newUserError: true,
-          newUserErrorMsg: err.message,
+          newUserErrorMsg: err.message || err || 'Something went wrong',
         });
       });
   };
