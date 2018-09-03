@@ -1,9 +1,19 @@
 import React from 'react';
+
 import Panel from '../../components/Panel';
 import ProgressRadial from '../../shared_components/ProgressRadial';
 import { SVGWallet, SVGInfo } from '../../shared_components/svg';
+import { toMoney } from '../../utils/formatter';
 
-const DashboardPanel = ({ progress = 80 }) => {
+const frequencyLabels = {
+  quincenal: '15 Días (Quincenal)',
+  mensual: '30/31 Días (mensual)',
+};
+const participantsNumber = 10;
+const multiply = 100 / participantsNumber;
+
+const DashboardPanel = ({ participants, frequency, amount }) => {
+  const progress = participants.length * multiply;
   return (
     <Panel>
       <div>
@@ -17,15 +27,15 @@ const DashboardPanel = ({ progress = 80 }) => {
         </div>
         <div className="small-padding text-center">
           <p className="no-margin">Total de la Tandita</p>
-          <h2>$3,000</h2>
+          <h2>{toMoney(amount)}</h2>
         </div>
         <div className="small-padding">
           <ul>
             <li>
-              <strong>Frecuencia</strong> 15 Días (Quincenal)
+              <strong>Frecuencia</strong> {frequencyLabels[frequency]}
             </li>
             <li>
-              <strong>Ahorro</strong> $433.00
+              <strong>Ahorro</strong> {toMoney(amount / participantsNumber)}
             </li>
             <li>
               <strong>Vence</strong> 16/Oct/2018

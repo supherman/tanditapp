@@ -1,11 +1,14 @@
 import React from 'react';
+
+import { graphql } from 'react-apollo';
+import ListTandas from '../../queries/listTandas';
 import MainLayout from '../../Layouts/Main';
 import DashboardPanel from './DashboardPanel';
 
-const Dashboard = () => {
-  const tanditas = Array.from({ length: 6 }, () => ({
-    progress: Math.floor(Math.random() * 100),
-  }));
+const Dashboard = ({ tandas }) => {
+  const myTandas = tandas.filter(tanda => {
+    return tanda.participants.includes(1);
+  });
   return (
     <MainLayout>
       <div className="dashboard-page container">
@@ -13,8 +16,8 @@ const Dashboard = () => {
         <hr />
         <div className="row">
           <div className="panels-list small-margin-top">
-            {tanditas.map(tanda => (
-              <DashboardPanel progress={tanda.progress} />
+            {myTandas.map(tanda => (
+              <DashboardPanel key={tanda.id} {...tanda} />
             ))}
           </div>
         </div>
@@ -22,8 +25,8 @@ const Dashboard = () => {
         <hr />
         <div className="row">
           <div className="panels-list small-margin-top">
-            {tanditas.map(tanda => (
-              <DashboardPanel progress={tanda.progress} />
+            {tandas.map(tanda => (
+              <DashboardPanel key={tanda.id} {...tanda} />
             ))}
           </div>
         </div>
@@ -32,4 +35,11 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default graphql(ListTandas, {
+  options: {
+    fetchPolicy: 'cache-and-network',
+  },
+  props: props => ({
+    tandas: props.data.listTandas ? props.data.listTandas.items : [],
+  }),
+})(Dashboard);
