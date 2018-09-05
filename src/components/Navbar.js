@@ -74,7 +74,7 @@ export default class Navbar extends PureComponent {
       menuShowing,
     } = this.state;
     return (
-      <div className={`navbar ${!isTransparent ? 'gradient-bg' : ''}`}>
+      <div className={`navbar ${!isTransparent ? 'blue-bg' : ''}`}>
         {loggedOut && <Redirect to="/" />}
         <div className="container margin-auto flex justify-between align-items-center small-padding">
           <Link to="/">
