@@ -1,0 +1,55 @@
+.tandita-modal {
+  .no-participants {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    img {
+      width: 100px;
+    }
+  }
+  .open-spaces {
+    li {
+      padding: 5px 15px;
+      line-height: 30px;
+      border-left: 5px solid;
+      border-color: rgba($greyish-brown, 0.2);
+      margin-bottom: 10px;
+      background: rgba($greyish-brown, 0.08);
+      border-radius: 3px;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: .3s;
+      box-shadow: $small-shadow;
+      > * {
+        position: relative;
+        z-index: 1;
+      }
+      &:hover {
+        cursor: pointer;
+        transition: .3s;
+        background-color: rgba($greeny-blue, 0.2);
+      }
+      &.taken {
+        border-color: $greeny-blue;
+      }
+    }
+  }
+  .summary {
+    padding: 0;
+    margin-top: 2em;
+  }
+}
+
+.panels-list{
+  .react-modal-container{
+    .react-modal-panel {
+      max-width: 700px;
+      width: calc(100% - 30px);
+    }
+  }
+}
+

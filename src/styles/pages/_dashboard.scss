@@ -1,7 +1,7 @@
 .dashboard-page {
   margin: auto;
   padding: $small-padding;
-} 
+}
 
 .panels-list {
   display: flex;
@@ -11,7 +11,7 @@
     display: inline-block;
     margin-bottom: $small-margin;
     overflow: hidden;
-    margin: $small-margin;    
+    margin: $small-margin;
     .progress-radial {
       h2 {
         position: relative;
@@ -33,24 +33,26 @@
     .panel-buttons {
       display: flex;
       padding: $small-padding;
-      margin-top: calc(-#{$small-margin});      
+      margin-top: calc(-#{$small-margin});
       button {
         flex: 1;
       }
     }
-    ul {
-      padding: $small-padding;
-      background: $pale-grey;
-      border-radius: $small-border-radius;
-      margin-top: calc(-#{$small-margin});
-      display: flex;
-      flex-wrap: wrap;
-      li {
-        margin-bottom: $small-margin;
-        width: 50%;
+    .summary {
+      ul {
+        padding: $small-padding;
+        background: rgba($greyish-brown, 0.08);
+        border-radius: $small-border-radius;
+        margin-top: calc(-#{$small-margin});
         display: flex;
-        flex-direction: column;
-        text-align: center;
+        flex-wrap: wrap;
+        li {
+          margin-bottom: $small-margin;
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+        }
       }
     }
   }

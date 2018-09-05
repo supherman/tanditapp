@@ -12,6 +12,11 @@ html, body {
 
 #root {
     height: 100%;
+    .awsappsync {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
 }
 
 * {
@@ -42,6 +47,7 @@ h4 {
 ul {
     margin: 0;
     list-style: none;
+    padding: 0;
 }
 
 p {
@@ -96,10 +102,14 @@ input[type="text"], input[type="password"], textarea {
 .green-text-color { color: $greeny-blue; }
 .white-text-color { color: $white; }
 
+// Text sizes
+.note-text-size { font-size: $font-size-note }
+
 
 // Backgrounds
 .white-bg { background-color: $white; }
 .dark-bg { background-color: $greyish-brown; }
+.blue-bg { background-color: $dark-indigo; }
 .gradient-bg {
     background-image: $gradient;
     &.inverted {
@@ -111,6 +121,10 @@ input[type="text"], input[type="password"], textarea {
 .small-padding { padding: $small-padding; }
 
 .big-padding-bottom { padding: 3em; }
+
+// Alignments
+.margin-auto { margin: 0 auto; }
+.text-center { text-align: center; }
 
 // Margins
 .no-margin { margin: 0; }
@@ -125,10 +139,6 @@ input[type="text"], input[type="password"], textarea {
 
 .big-margin-bottom { margin-bottom: 3em; }
 .big-margin-top { margin-top: 3em; }
-
-// Alignments
-.margin-auto { margin: auto; }
-.text-center { text-align: center; }
 
 // Borders
 .small-border-radius {
@@ -149,3 +159,6 @@ input[type="text"], input[type="password"], textarea {
 // Align Items
 .align-items-center { align-items: center; }
 .align-items-start { align-items: flex-start; }
+
+.width-100 { width: 100%; }
+.width-50 { width: 50%; }

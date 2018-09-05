@@ -1,0 +1,33 @@
+.react-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  .react-modal-panel {
+    position: relative;
+    background: $white;
+    top: 50px;
+    width: calc(50% - 30px);
+    border-radius: 3px;
+    margin: 0 auto;
+    border-radius: 3px;
+    overflow: hidden;
+    animation: show-modal .5s forwards;
+  }
+  .react-modal-overlay {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background: rgba($greyish-brown, 0.8);
+    top: 0;
+    left: 0;
+  }
+}
+
+@keyframes show-modal {
+  from {top: 0px; opacity: 0;}
+  to {top: 50px; opacity: 1;}
+}

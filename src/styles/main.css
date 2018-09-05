@@ -12,6 +12,10 @@ html, body {
 
 #root {
   height: 100%; }
+  #root .awsappsync {
+    display: flex;
+    flex-direction: column;
+    height: 100%; }
 
 * {
   box-sizing: border-box; }
@@ -34,7 +38,8 @@ h4 {
 
 ul {
   margin: 0;
-  list-style: none; }
+  list-style: none;
+  padding: 0; }
 
 p {
   font-size: 1em;
@@ -81,11 +86,17 @@ input[type="text"], input[type="password"], textarea {
 .white-text-color {
   color: #FFF; }
 
+.note-text-size {
+  font-size: 0.85em; }
+
 .white-bg {
   background-color: #FFF; }
 
 .dark-bg {
   background-color: #4a4a4a; }
+
+.blue-bg {
+  background-color: #270f71; }
 
 .gradient-bg {
   background-image: linear-gradient(317deg, #55bca4, #270f71); }
@@ -97,6 +108,12 @@ input[type="text"], input[type="password"], textarea {
 
 .big-padding-bottom {
   padding: 3em; }
+
+.margin-auto {
+  margin: 0 auto; }
+
+.text-center {
+  text-align: center; }
 
 .no-margin {
   margin: 0; }
@@ -128,12 +145,6 @@ input[type="text"], input[type="password"], textarea {
 .big-margin-top {
   margin-top: 3em; }
 
-.margin-auto {
-  margin: auto; }
-
-.text-center {
-  text-align: center; }
-
 .small-border-radius {
   border-radius: 6px; }
 
@@ -154,6 +165,12 @@ input[type="text"], input[type="password"], textarea {
 
 .align-items-start {
   align-items: flex-start; }
+
+.width-100 {
+  width: 100%; }
+
+.width-50 {
+  width: 50%; }
 
 .hero {
   position: relative;
@@ -363,14 +380,14 @@ input[type="text"], input[type="password"], textarea {
       margin-top: calc(-1em); }
       .panels-list .panel .panel-buttons button {
         flex: 1; }
-    .panels-list .panel ul {
+    .panels-list .panel .summary ul {
       padding: 1em;
-      background: #f2f6f9;
+      background: rgba(74, 74, 74, 0.08);
       border-radius: 6px;
       margin-top: calc(-1em);
       display: flex;
       flex-wrap: wrap; }
-      .panels-list .panel ul li {
+      .panels-list .panel .summary ul li {
         margin-bottom: 1em;
         width: 50%;
         display: flex;
@@ -381,6 +398,47 @@ input[type="text"], input[type="password"], textarea {
       width: 100%; }
       .panels-list .panel .panel-buttons {
         flex-direction: column-reverse; } }
+
+.tandita-modal .no-participants {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center; }
+  .tandita-modal .no-participants img {
+    width: 100px; }
+
+.tandita-modal .open-spaces li {
+  padding: 5px 15px;
+  line-height: 30px;
+  border-left: 5px solid;
+  border-color: rgba(74, 74, 74, 0.2);
+  margin-bottom: 10px;
+  background: rgba(74, 74, 74, 0.08);
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: .3s;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12); }
+  .tandita-modal .open-spaces li > * {
+    position: relative;
+    z-index: 1; }
+  .tandita-modal .open-spaces li:hover {
+    cursor: pointer;
+    transition: .3s;
+    background-color: rgba(85, 188, 164, 0.2); }
+  .tandita-modal .open-spaces li.taken {
+    border-color: #55bca4; }
+
+.tandita-modal .summary {
+  padding: 0;
+  margin-top: 2em; }
+
+.panels-list .react-modal-container .react-modal-panel {
+  max-width: 700px;
+  width: calc(100% - 30px); }
 
 .layout {
   display: flex;
@@ -534,7 +592,8 @@ input[type="text"], input[type="password"], textarea {
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  pointer-events: none; }
   .progress-radial svg {
     position: absolute;
     width: 100%;
@@ -563,3 +622,37 @@ input[type="text"], input[type="password"], textarea {
 @keyframes dash {
   0% {
     stroke-dashoffset: 339; } }
+
+.react-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; }
+  .react-modal-container .react-modal-panel {
+    position: relative;
+    background: #FFF;
+    top: 50px;
+    width: calc(50% - 30px);
+    border-radius: 3px;
+    margin: 0 auto;
+    border-radius: 3px;
+    overflow: hidden;
+    animation: show-modal .5s forwards; }
+  .react-modal-container .react-modal-overlay {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background: rgba(74, 74, 74, 0.8);
+    top: 0;
+    left: 0; }
+
+@keyframes show-modal {
+  from {
+    top: 0px;
+    opacity: 0; }
+  to {
+    top: 50px;
+    opacity: 1; } }
