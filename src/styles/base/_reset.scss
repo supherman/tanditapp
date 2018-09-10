@@ -74,10 +74,10 @@ a {
     }
 }
 
-input, textarea {
+input, textarea, select {
     font-family: $main-font;
     color: $greyish-brown;
-    padding: 5px 15px;
+    padding: 5px $small-padding;
     border-radius: $small-border-radius;
     border: .5px solid  $warm-grey;
     width: 100%;
@@ -88,6 +88,12 @@ input, textarea {
         border:1px solid $greeny-blue;
         box-shadow: 0 0 5px $greeny-blue;
     }
+}
+
+select {
+    background: #FFF;
+    height: 3em;
+    margin-bottom: $small-margin;
 }
 
 input[type="text"], input[type="password"], textarea {
@@ -125,6 +131,7 @@ input[type="text"], input[type="password"], textarea {
 // Alignments
 .margin-auto { margin: 0 auto; }
 .text-center { text-align: center; }
+.text-right { text-align: right; }
 
 // Margins
 .no-margin { margin: 0; }

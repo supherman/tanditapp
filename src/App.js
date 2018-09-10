@@ -8,6 +8,7 @@ import './styles/main.css';
 import Landing from './pages/Landing';
 import StyleGuide from './pages/StyleGuide';
 import Dashboard from './pages/Dashboard';
+import CreateTandita from './pages/Admin/Tanditas/Create';
 
 class App extends Component {
   render() {
@@ -17,7 +18,12 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <PrivateRoute exact path="/style_guide" component={StyleGuide} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <AdminRoute path="/admin" component={Dashboard} />
+          <AdminRoute exact path="/admin" component={Dashboard} />
+          <AdminRoute
+            exact
+            path="/admin/tanditas/create"
+            component={CreateTandita}
+          />
           <Route component={Landing} />
         </Switch>
       </Router>

@@ -60,19 +60,24 @@ a {
     text-decoration: none;
     color: inherit; }
 
-input, textarea {
+input, textarea, select {
   font-family: "Poppins", sans-serif;
   color: #4a4a4a;
-  padding: 5px 15px;
+  padding: 5px 1em;
   border-radius: 6px;
   border: 0.5px solid #979797;
   width: 100%;
   box-sizing: border-box;
   resize: vertical; }
-  input:focus, textarea:focus {
+  input:focus, textarea:focus, select:focus {
     outline: none;
     border: 1px solid #55bca4;
     box-shadow: 0 0 5px #55bca4; }
+
+select {
+  background: #FFF;
+  height: 3em;
+  margin-bottom: 1em; }
 
 input[type="text"], input[type="password"], textarea {
   font-size: 1em;
@@ -114,6 +119,9 @@ input[type="text"], input[type="password"], textarea {
 
 .text-center {
   text-align: center; }
+
+.text-right {
+  text-align: right; }
 
 .no-margin {
   margin: 0; }
