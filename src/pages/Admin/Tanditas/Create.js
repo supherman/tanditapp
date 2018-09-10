@@ -10,7 +10,7 @@ const initialValues = {
 };
 
 class Create extends Component {
-  handleSubmit = () => { };
+  handleSubmit = () => {};
 
   render() {
     return (
