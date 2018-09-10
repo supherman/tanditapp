@@ -49,6 +49,10 @@ export default class Navbar extends PureComponent {
       visible: isLoggedIn && isAdmin,
     },
     {
+      component: <Link to="/admin/tanditas/create">Create Tanda</Link>,
+      visible: isLoggedIn && isAdmin,
+    },
+    {
       component: (
         <button className="button link" onClick={this.logout}>
           Cerrar Sesión
